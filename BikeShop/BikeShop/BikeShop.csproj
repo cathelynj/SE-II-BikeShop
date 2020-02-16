@@ -163,6 +163,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\api\BicycleController.cs" />
+    <Compile Include="Controllers\api\BicycleTubeUsageController.cs" />
+    <Compile Include="Controllers\api\BikePartsController.cs" />
+    <Compile Include="Controllers\api\BikeTubesController.cs" />
+    <Compile Include="Controllers\api\CityController.cs" />
     <Compile Include="Controllers\api\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -268,6 +273,11 @@
     <Compile Include="Models\TUBEMATERIAL.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\BicycleTubeUsageViewModel.cs" />
+    <Compile Include="Models\ViewModels\BicycleViewModel.cs" />
+    <Compile Include="Models\ViewModels\BikePartsViewModel.cs" />
+    <Compile Include="Models\ViewModels\BikeTubesViewModel.cs" />
+    <Compile Include="Models\ViewModels\CityViewModel.cs" />
     <Compile Include="Models\ViewModels\EmployeeViewModel.cs" />
     <Compile Include="Models\WORKAREA.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>

@@ -156,6 +156,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -261,6 +262,7 @@
     <Compile Include="Models\TUBEMATERIAL.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\CustomerViewModel.cs" />
     <Compile Include="Models\ViewModels\EmployeeViewModel.cs" />
     <Compile Include="Models\WORKAREA.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>

@@ -78,6 +78,7 @@ namespace BikeShop.Controllers
             return Ok(employee);
         }
 
+
         public IHttpActionResult PostNewEmployee(EmployeeViewModel employee)
         {
             if (!ModelState.IsValid)

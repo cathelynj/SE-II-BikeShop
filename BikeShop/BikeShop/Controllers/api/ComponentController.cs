@@ -40,7 +40,7 @@ namespace BikeShop.Controllers.api
                 return NotFound();
             }
 
-            return Ok(componentsizes);
+            return Ok(components);
         }
     }
 }

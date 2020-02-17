@@ -168,6 +168,11 @@
     <Compile Include="Controllers\api\BikePartsController.cs" />
     <Compile Include="Controllers\api\BikeTubesController.cs" />
     <Compile Include="Controllers\api\CityController.cs" />
+    <Compile Include="Controllers\api\CommonSizeController.cs" />
+    <Compile Include="Controllers\api\ComponentController.cs" />
+    <Compile Include="Controllers\api\ComponentNameController.cs" />
+    <Compile Include="Controllers\api\CustomerController.cs" />
+    <Compile Include="Controllers\api\CustomerTransactionController.cs" />
     <Compile Include="Controllers\api\EmployeeController.cs" />
     <Compile Include="Controllers\api\ManufactorerController.cs" />
     <Compile Include="Controllers\api\ManufactorerTransactionController.cs" />
@@ -283,6 +288,11 @@
     <Compile Include="Models\ViewModels\BikePartsViewModel.cs" />
     <Compile Include="Models\ViewModels\BikeTubesViewModel.cs" />
     <Compile Include="Models\ViewModels\CityViewModel.cs" />
+    <Compile Include="Models\ViewModels\CommonSizeViewModel.cs" />
+    <Compile Include="Models\ViewModels\ComponentNameViewModel.cs" />
+    <Compile Include="Models\ViewModels\ComponentViewModel.cs" />
+    <Compile Include="Models\ViewModels\CustomerTransactionViewModel.cs" />
+    <Compile Include="Models\ViewModels\CustomerViewModel.cs" />
     <Compile Include="Models\ViewModels\EmployeeViewModel.cs" />
     <Compile Include="Models\ViewModels\ManufactorerTransactionViewModel.cs" />
     <Compile Include="Models\ViewModels\ManufactorerViewModel.cs" />

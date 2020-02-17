@@ -178,6 +178,15 @@
     <Compile Include="Controllers\api\ManufactorerTransactionController.cs" />
     <Compile Include="Controllers\api\ModelSizeController.cs" />
     <Compile Include="Controllers\api\ModelTypeController.cs" />
+    <Compile Include="Controllers\api\PurchaseItemController.cs" />
+    <Compile Include="Controllers\api\PurchaseOrderController.cs" />
+    <Compile Include="Controllers\api\RetailStoreController.cs" />
+    <Compile Include="Controllers\api\RevisionHistoryController.cs" />
+    <Compile Include="Controllers\api\SampleNameController.cs" />
+    <Compile Include="Controllers\api\SampleStreetController.cs" />
+    <Compile Include="Controllers\api\StateTaxRateController.cs" />
+    <Compile Include="Controllers\api\TempDateMadeController.cs" />
+    <Compile Include="Controllers\api\TubeMaterialController.cs" />
     <Compile Include="Controllers\api\WorkAreaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -298,6 +307,15 @@
     <Compile Include="Models\ViewModels\ManufactorerViewModel.cs" />
     <Compile Include="Models\ViewModels\ModelSizeViewModel.cs" />
     <Compile Include="Models\ViewModels\ModelTypeViewModel.cs" />
+    <Compile Include="Models\ViewModels\PurchaseItemViewModel.cs" />
+    <Compile Include="Models\ViewModels\PurchaseOrderViewModel.cs" />
+    <Compile Include="Models\ViewModels\RetailStoreViewModel.cs" />
+    <Compile Include="Models\ViewModels\RevisionHistoryViewModel.cs" />
+    <Compile Include="Models\ViewModels\SampleNameViewModel.cs" />
+    <Compile Include="Models\ViewModels\SampleStreetViewModel.cs" />
+    <Compile Include="Models\ViewModels\StateTaxRateViewModel.cs" />
+    <Compile Include="Models\ViewModels\TempDateMadeViewModel.cs" />
+    <Compile Include="Models\ViewModels\TubeMaterialViewModel.cs" />
     <Compile Include="Models\ViewModels\WorkAreaViewModel.cs" />
     <Compile Include="Models\WORKAREA.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>

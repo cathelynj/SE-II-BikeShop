@@ -95,5 +95,52 @@ namespace BikeShop.Controllers.api
             }
             return Ok();
         }
+
+        public IHttpActionResult Put(CityViewModel city)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Not a valid model");
+            using (var ctx = new BikeShopEntities())
+            {
+                var existingCity = ctx.CITies.Where(s => s.CITYID == city.CITYID).FirstOrDefault<CITY>();
+                if(existingCity != null)
+                {
+                    existingCity.CITY1 = city.CITY1;
+                    existingCity.LATITUDE = city.LATITUDE;
+                    existingCity.LONGITUDE = city.LONGITUDE;
+                    existingCity.POPULATION1980 = city.POPULATION1980;
+                    existingCity.POPULATION1990 = city.POPULATION1990;
+                    existingCity.POPULATIONCDF = city.POPULATIONCDF;
+                    existingCity.STATE = city.STATE;
+                    existingCity.ZIPCODE = city.ZIPCODE;
+                    existingCity.COUNTRY = city.COUNTRY;
+                    existingCity.AREACODE = city.AREACODE;
+
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            if (id <= 0)
+                return BadRequest("Not a valid city id");
+
+            using (var ctx = new BikeShopEntities())
+            {
+                var city = ctx.CITies
+                    .Where(c => c.CITYID == id)
+                    .FirstOrDefault();
+
+                ctx.Entry(city).State = System.Data.Entity.EntityState.Deleted;
+                ctx.SaveChanges();
+            }
+            return Ok();
+        }
     }
 }

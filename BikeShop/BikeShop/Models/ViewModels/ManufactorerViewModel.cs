@@ -5,15 +5,15 @@ using System.Web;
 
 namespace BikeShop.Models.ViewModels
 {
-    public class CustomerViewModel
+    public class ManufactorerViewModel
     {
-        public int CUSTOMERID { get; set; }
+        public int MANUFACTURERID { get; set; }
+        public string MANUFACTURERNAME { get; set; }
+        public string CONTACTNAME { get; set; }
         public string PHONE { get; set; }
-        public string FIRSTNAME { get; set; }
-        public string LASTNAME { get; set; }
         public string ADDRESS { get; set; }
         public string ZIPCODE { get; set; }
-        public int CITYID { get; set; }
+        public Nullable<int> CITYID { get; set; }
         public Nullable<decimal> BALANCEDUE { get; set; }
     }
 }

@@ -7,33 +7,33 @@ namespace BikeShop.Models.ViewModels
 {
     public class BicycleViewModel
     {
-        public int SerialNumber { get; set; }
-        public Nullable<int> CustomerID { get; set; }
-        public string ModelType { get; set; }
-        public Nullable<int> PaintID { get; set; }
-        public Nullable<int> FrameSize { get; set; }
-        public Nullable<System.DateTime> OrderDate { get; set; }
-        public Nullable<System.DateTime> StartDate { get; set; }
-        public Nullable<System.DateTime> ShipDate { get; set; }
-        public Nullable<int> ShipEmployee { get; set; }
-        public Nullable<decimal> FrameAssembler { get; set; }
-        public Nullable<decimal> Painter { get; set; }
-        public string Construction { get; set; }
-        public Nullable<decimal> WaterBottleBrazeOns { get; set; }
-        public string CustomName { get; set; }
-        public string LetterstyleID { get; set; }
-        public Nullable<int> StoreID { get; set; }
-        public Nullable<int> EmployeeID { get; set; }
-        public Nullable<int> TopTube { get; set; }
-        public Nullable<int> ChainStay { get; set; }
-        public Nullable<int> HeadTubeAngle { get; set; }
-        public Nullable<int> SeaTubeAngle { get; set; }
-        public Nullable<decimal> ListPrice { get; set; }
-        public Nullable<decimal> SalePrice { get; set; }
-        public Nullable<decimal> SalesTax { get; set; }
-        public string SalesState { get; set; }
-        public Nullable<decimal> ShipPrice { get; set; }
-        public Nullable<decimal> FramePrice { get; set; }
-        public Nullable<decimal> ComponentList { get; set; }
+        public int SERIALNUMBER { get; set; }
+        public Nullable<int> CUSTOMERID { get; set; }
+        public string MODELTYPE { get; set; }
+        public Nullable<int> PAINTID { get; set; }
+        public Nullable<int> FRAMESIZE { get; set; }
+        public Nullable<System.DateTime> ORDERDATE { get; set; }
+        public Nullable<System.DateTime> STARTDATE { get; set; }
+        public Nullable<System.DateTime> SHIPDATE { get; set; }
+        public Nullable<int> SHIPEMPLOYEE { get; set; }
+        public Nullable<decimal> FRAMEASSEMBLER { get; set; }
+        public Nullable<decimal> PAINTER { get; set; }
+        public string CONSTRUCTION { get; set; }
+        public Nullable<decimal> WATERBOTTLEBRAZEONS { get; set; }
+        public string CUSTOMNAME { get; set; }
+        public string LETTERSTYLEID { get; set; }
+        public Nullable<int> STOREID { get; set; }
+        public Nullable<int> EMPLOYEEID { get; set; }
+        public Nullable<int> TOPTUBE { get; set; }
+        public Nullable<int> CHAINSTAY { get; set; }
+        public Nullable<int> HEADTUBEANGLE { get; set; }
+        public Nullable<int> SEATTUBEANGLE { get; set; }
+        public Nullable<decimal> LISTPRICE { get; set; }
+        public Nullable<decimal> SALEPRICE { get; set; }
+        public Nullable<decimal> SALESTAX { get; set; }
+        public string SALESTATE { get; set; }
+        public Nullable<decimal> SHIPPRICE { get; set; }
+        public Nullable<decimal> FRAMEPRICE { get; set; }
+        public Nullable<decimal> COMPONENTLIST { get; set; }
     }
 }

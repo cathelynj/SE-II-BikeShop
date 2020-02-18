@@ -188,6 +188,8 @@
     <Compile Include="Controllers\api\TempDateMadeController.cs" />
     <Compile Include="Controllers\api\TubeMaterialController.cs" />
     <Compile Include="Controllers\api\WorkAreaController.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
+    <Compile Include="Controllers\CustomerTransactionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -389,6 +391,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Cities\Index.cshtml" />
+    <Content Include="Views\Cities\Create.cshtml" />
+    <Content Include="Views\CustomerTransactions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

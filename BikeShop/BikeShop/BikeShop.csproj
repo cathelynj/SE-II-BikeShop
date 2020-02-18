@@ -178,6 +178,8 @@
     <Compile Include="Controllers\api\ManufactorerTransactionController.cs" />
     <Compile Include="Controllers\api\ModelSizeController.cs" />
     <Compile Include="Controllers\api\ModelTypeController.cs" />
+    <Compile Include="Controllers\api\PaintController.cs" />
+    <Compile Include="Controllers\api\PreferenceController.cs" />
     <Compile Include="Controllers\api\PurchaseItemController.cs" />
     <Compile Include="Controllers\api\PurchaseOrderController.cs" />
     <Compile Include="Controllers\api\RetailStoreController.cs" />
@@ -309,6 +311,8 @@
     <Compile Include="Models\ViewModels\ManufactorerViewModel.cs" />
     <Compile Include="Models\ViewModels\ModelSizeViewModel.cs" />
     <Compile Include="Models\ViewModels\ModelTypeViewModel.cs" />
+    <Compile Include="Models\ViewModels\PaintViewModel.cs" />
+    <Compile Include="Models\ViewModels\PreferenceViewModel.cs" />
     <Compile Include="Models\ViewModels\PurchaseItemViewModel.cs" />
     <Compile Include="Models\ViewModels\PurchaseOrderViewModel.cs" />
     <Compile Include="Models\ViewModels\RetailStoreViewModel.cs" />

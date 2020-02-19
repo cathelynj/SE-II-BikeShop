@@ -191,6 +191,7 @@
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CustomerTransactionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManufactorerTransactionsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -395,6 +396,9 @@
     <Content Include="Views\Cities\Create.cshtml" />
     <Content Include="Views\CustomerTransactions\Index.cshtml" />
     <Content Include="Views\Cities\Edit.cshtml" />
+    <Content Include="Views\ManufactorerTransactions\Index.cshtml" />
+    <Content Include="Views\ManufactorerTransactions\Create.cshtml" />
+    <Content Include="Views\ManufactorerTransactions\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

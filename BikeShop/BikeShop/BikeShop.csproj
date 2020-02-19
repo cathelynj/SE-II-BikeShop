@@ -190,6 +190,7 @@
     <Compile Include="Controllers\api\TempDateMadeController.cs" />
     <Compile Include="Controllers\api\TubeMaterialController.cs" />
     <Compile Include="Controllers\api\WorkAreaController.cs" />
+    <Compile Include="Controllers\BicyclesController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CustomerTransactionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -403,6 +404,9 @@
     <Content Include="Views\ManufactorerTransactions\Index.cshtml" />
     <Content Include="Views\ManufactorerTransactions\Create.cshtml" />
     <Content Include="Views\ManufactorerTransactions\Edit.cshtml" />
+    <Content Include="Views\Bicycles\Index.cshtml" />
+    <Content Include="Views\Bicycles\Create.cshtml" />
+    <Content Include="Views\Bicycles\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

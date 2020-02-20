@@ -201,6 +201,7 @@
     <Compile Include="Controllers\CustomerTransactionsController.cs" />
     <Compile Include="Controllers\base\HomeController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\ManufactorersController.cs" />
     <Compile Include="Controllers\ManufactorerTransactionsController.cs" />
     <Compile Include="Controllers\base\ValuesController.cs" />
     <Compile Include="Controllers\WorkAreasController.cs" />
@@ -442,6 +443,9 @@
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Manufactorers\Index.cshtml" />
+    <Content Include="Views\Manufactorers\Create.cshtml" />
+    <Content Include="Views\Manufactorers\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

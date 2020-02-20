@@ -211,6 +211,7 @@
     <Compile Include="Controllers\ModelSizesController.cs" />
     <Compile Include="Controllers\ModelTypesController.cs" />
     <Compile Include="Controllers\PaintsController.cs" />
+    <Compile Include="Controllers\PreferencesController.cs" />
     <Compile Include="Controllers\WorkAreasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -468,6 +469,9 @@
     <Content Include="Views\GroupOs\Index.cshtml" />
     <Content Include="Views\GroupOs\Create.cshtml" />
     <Content Include="Views\GroupOs\Edit.cshtml" />
+    <Content Include="Views\Preferences\Index.cshtml" />
+    <Content Include="Views\Preferences\Create.cshtml" />
+    <Content Include="Views\Preferences\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

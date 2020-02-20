@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace BikeShop.Controllers.api
 {
-    public class BikeTubesController : ApiController
+    public class BikeTubeController : ApiController
     {
         public IHttpActionResult GetAllBikeTubes()
         {
@@ -70,6 +70,45 @@ namespace BikeShop.Controllers.api
                     LENGTH = bt.LENGTH
                 });
 
+                ctx.SaveChanges();
+            }
+            return Ok();
+        }
+
+        public IHttpActionResult Put(BikeTubesViewModel bt)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Not a valid model");
+            using (var ctx = new BikeShopEntities())
+            {
+                var existingBP = ctx.BIKETUBES.Where(w => w.SERIALNUMBER == bt.SERIALNUMBER && w.TUBENAME == bt.TUBENAME).FirstOrDefault<BIKETUBE>();
+                if (existingBP != null)
+                {
+                    existingBP.SERIALNUMBER = bt.SERIALNUMBER;
+                    existingBP.TUBENAME = bt.TUBENAME;
+                    existingBP.TUBEID = bt.TUBEID;
+                    existingBP.LENGTH = bt.LENGTH;
+
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int serial, string tube)
+        {
+
+            using (var ctx = new BikeShopEntities())
+            {
+                var bp = ctx.BIKETUBES
+                    .Where(w => w.SERIALNUMBER == serial && w.TUBENAME == tube)
+                    .FirstOrDefault();
+
+                ctx.Entry(bp).State = System.Data.Entity.EntityState.Deleted;
                 ctx.SaveChanges();
             }
             return Ok();

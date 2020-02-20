@@ -166,7 +166,7 @@
     <Compile Include="Controllers\api\BicycleController.cs" />
     <Compile Include="Controllers\api\BicycleTubeUsageController.cs" />
     <Compile Include="Controllers\api\BikePartController.cs" />
-    <Compile Include="Controllers\api\BikeTubesController.cs" />
+    <Compile Include="Controllers\api\BikeTubeController.cs" />
     <Compile Include="Controllers\api\CityController.cs" />
     <Compile Include="Controllers\api\CommonSizeController.cs" />
     <Compile Include="Controllers\api\ComponentController.cs" />
@@ -422,10 +422,12 @@
     <Content Include="Views\BikeParts\Index.cshtml" />
     <Content Include="Views\BikeParts\Create.cshtml" />
     <Content Include="Views\BikeParts\Edit.cshtml" />
+    <Content Include="Views\BikeTubes\Index.cshtml" />
+    <Content Include="Views\BikeTubes\Create.cshtml" />
+    <Content Include="Views\BikeTubes\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BikeTubes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

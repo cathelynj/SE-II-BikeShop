@@ -219,6 +219,7 @@
     <Compile Include="Controllers\SampleNamesController.cs" />
     <Compile Include="Controllers\SampleStreetsController.cs" />
     <Compile Include="Controllers\StateTaxRatesController.cs" />
+    <Compile Include="Controllers\TempDatesMadeController.cs" />
     <Compile Include="Controllers\WorkAreasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -500,6 +501,9 @@
     <Content Include="Views\StateTaxRates\Index.cshtml" />
     <Content Include="Views\StateTaxRates\Create.cshtml" />
     <Content Include="Views\StateTaxRates\Edit.cshtml" />
+    <Content Include="Views\TempDatesMade\Index.cshtml" />
+    <Content Include="Views\TempDatesMade\Create.cshtml" />
+    <Content Include="Views\TempDatesMade\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

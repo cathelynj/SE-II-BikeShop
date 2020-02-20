@@ -8,34 +8,34 @@ using System.Web.Mvc;
 
 namespace BikeShop.Controllers
 {
-    public class PreferencesController : Controller
+    public class TempDatesMadeController : Controller
     {
-        // GET: Preferences
+        // GET: TempDatesMade
         public ActionResult Index()
         {
-            IEnumerable<PreferenceViewModel> p = null;
+            IEnumerable<TempDateMadeViewModel> bikes = null;
 
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:51968/api/");
-                var responseTask = client.GetAsync("preference");
+                var responseTask = client.GetAsync("tempdatemade");
                 responseTask.Wait();
 
                 var result = responseTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    var readTask = result.Content.ReadAsAsync<IList<PreferenceViewModel>>();
+                    var readTask = result.Content.ReadAsAsync<IList<TempDateMadeViewModel>>();
                     readTask.Wait();
 
-                    p = readTask.Result;
+                    bikes = readTask.Result;
                 }
                 else
                 {
-                    p = Enumerable.Empty<PreferenceViewModel>();
+                    bikes = Enumerable.Empty<TempDateMadeViewModel>();
                     ModelState.AddModelError(string.Empty, "Server error.");
                 }
             }
-            return View(p);
+            return View(bikes);
         }
 
         public ActionResult Create()
@@ -44,13 +44,13 @@ namespace BikeShop.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(PreferenceViewModel p)
+        public ActionResult Create(TempDateMadeViewModel bike)
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:51968/api/preference");
+                client.BaseAddress = new Uri("http://localhost:51968/api/tempdatemade");
 
-                var postTask = client.PostAsXmlAsync<PreferenceViewModel>("preference", p);
+                var postTask = client.PostAsXmlAsync<TempDateMadeViewModel>("tempdatemade", bike);
                 postTask.Wait();
 
                 var result = postTask.Result;
@@ -60,40 +60,40 @@ namespace BikeShop.Controllers
                 }
             }
             ModelState.AddModelError(string.Empty, "Server error.");
-            return View(p);
+            return View(bike);
         }
 
-        public ActionResult Edit(string item)
+        public ActionResult Edit(System.DateTime id)
         {
-            PreferenceViewModel p = null;
+            TempDateMadeViewModel bike = null;
 
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:51968/api/");
 
-                var responseTask = client.GetAsync("preference?item=" + item);
+                var responseTask = client.GetAsync("tempdatemade?id=" + id.ToString());
                 responseTask.Wait();
 
                 var result = responseTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    var readTask = result.Content.ReadAsAsync<PreferenceViewModel>();
+                    var readTask = result.Content.ReadAsAsync<TempDateMadeViewModel>();
                     readTask.Wait();
 
-                    p = readTask.Result;
+                    bike = readTask.Result;
                 }
             }
-            return View(p);
+            return View(bike);
         }
 
         [HttpPost]
-        public ActionResult Edit(PreferenceViewModel p)
+        public ActionResult Edit(TempDateMadeViewModel bike)
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:51968/api/preference");
+                client.BaseAddress = new Uri("http://localhost:51968/api/tempdatemade");
 
-                var putTask = client.PutAsXmlAsync<PreferenceViewModel>("preference", p);
+                var putTask = client.PutAsXmlAsync<TempDateMadeViewModel>("tempdatemade", bike);
                 putTask.Wait();
 
                 var result = putTask.Result;
@@ -102,16 +102,16 @@ namespace BikeShop.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            return View(p);
+            return View(bike);
         }
 
-        public ActionResult Delete(string item)
+        public ActionResult Delete(System.DateTime id)
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:51968/api/preference");
+                client.BaseAddress = new Uri("http://localhost:51968/api/tempdatemade");
 
-                var deleteTask = client.DeleteAsync("preference/" + item);
+                var deleteTask = client.DeleteAsync("tempdatemade/" + id.ToString());
                 deleteTask.Wait();
 
                 var result = deleteTask.Result;

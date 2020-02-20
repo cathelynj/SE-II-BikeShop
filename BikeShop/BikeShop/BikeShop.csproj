@@ -217,6 +217,7 @@
     <Compile Include="Controllers\RetailStoresController.cs" />
     <Compile Include="Controllers\RevisionHistoriesController.cs" />
     <Compile Include="Controllers\SampleNamesController.cs" />
+    <Compile Include="Controllers\SampleStreetsController.cs" />
     <Compile Include="Controllers\WorkAreasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -492,6 +493,9 @@
     <Content Include="Views\SampleNames\Index.cshtml" />
     <Content Include="Views\SampleNames\Create.cshtml" />
     <Content Include="Views\SampleNames\Edit.cshtml" />
+    <Content Include="Views\SampleStreets\Index.cshtml" />
+    <Content Include="Views\SampleStreets\Create.cshtml" />
+    <Content Include="Views\SampleStreets\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

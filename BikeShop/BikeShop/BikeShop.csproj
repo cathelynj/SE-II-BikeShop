@@ -197,6 +197,7 @@
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CommonSizesController.cs" />
     <Compile Include="Controllers\ComponentsController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\CustomerTransactionsController.cs" />
     <Compile Include="Controllers\base\HomeController.cs" />
     <Compile Include="Controllers\ManufactorerTransactionsController.cs" />
@@ -434,6 +435,9 @@
     <Content Include="Views\Components\Edit.cshtml" />
     <Content Include="Views\CustomerTransactions\Create.cshtml" />
     <Content Include="Views\CustomerTransactions\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

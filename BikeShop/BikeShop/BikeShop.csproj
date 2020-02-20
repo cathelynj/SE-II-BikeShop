@@ -215,6 +215,7 @@
     <Compile Include="Controllers\PurchaseItemsController.cs" />
     <Compile Include="Controllers\PurchaseOrdersController.cs" />
     <Compile Include="Controllers\RetailStoresController.cs" />
+    <Compile Include="Controllers\RevisionHistoriesController.cs" />
     <Compile Include="Controllers\WorkAreasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -484,6 +485,9 @@
     <Content Include="Views\RetailStores\Index.cshtml" />
     <Content Include="Views\RetailStores\Create.cshtml" />
     <Content Include="Views\RetailStores\Edit.cshtml" />
+    <Content Include="Views\RevisionHistories\Index.cshtml" />
+    <Content Include="Views\RevisionHistories\Create.cshtml" />
+    <Content Include="Views\RevisionHistories\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

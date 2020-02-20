@@ -198,6 +198,7 @@
     <Compile Include="Controllers\BikeTubesController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CommonSizesController.cs" />
+    <Compile Include="Controllers\ComponentNamesController.cs" />
     <Compile Include="Controllers\ComponentsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\CustomerTransactionsController.cs" />
@@ -508,6 +509,9 @@
     <Content Include="Views\TubeMaterials\Index.cshtml" />
     <Content Include="Views\TubeMaterials\Create.cshtml" />
     <Content Include="Views\TubeMaterials\Edit.cshtml" />
+    <Content Include="Views\ComponentNames\Index.cshtml" />
+    <Content Include="Views\ComponentNames\Create.cshtml" />
+    <Content Include="Views\ComponentNames\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

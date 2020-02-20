@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace BikeShop.Models.ViewModels
 {
     public class RevisionHistoryViewModel
     {
+        [Key]
         public int ID { get; set; }
         public string VERSION { get; set; }
         public Nullable<System.DateTime> CHANGEDATE { get; set; }

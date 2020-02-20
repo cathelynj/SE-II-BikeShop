@@ -193,6 +193,7 @@
     <Compile Include="Controllers\BicyclesController.cs" />
     <Compile Include="Controllers\BicycleTubeUsagesController.cs" />
     <Compile Include="Controllers\BikePartsController.cs" />
+    <Compile Include="Controllers\BikeTubesController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CustomerTransactionsController.cs" />
     <Compile Include="Controllers\base\HomeController.cs" />
@@ -312,6 +313,8 @@
     <Compile Include="Models\ViewModels\CustomerTransactionViewModel.cs" />
     <Compile Include="Models\ViewModels\CustomerViewModel.cs" />
     <Compile Include="Models\ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="Models\ViewModels\GroupOViewModel.cs" />
+    <Compile Include="Models\ViewModels\LetterStyleViewModel.cs" />
     <Compile Include="Models\ViewModels\ManufactorerTransactionViewModel.cs" />
     <Compile Include="Models\ViewModels\ManufactorerViewModel.cs" />
     <Compile Include="Models\ViewModels\ModelSizeViewModel.cs" />
@@ -422,6 +425,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BikeTubes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace BikeShop.Models.ViewModels
 {
     public class EmployeeViewModel
     {
+        [Key]
         public int EMPLOYEEID { get; set; }
         public string TAXPAYERID { get; set; }
         public string LASTNAME { get; set; }

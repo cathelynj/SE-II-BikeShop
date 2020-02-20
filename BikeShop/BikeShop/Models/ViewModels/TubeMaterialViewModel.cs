@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace BikeShop.Models.ViewModels
 {
     public class TubeMaterialViewModel
     {
+        [Key]
         public int TUBEID { get; set; }
         public string MATERIAL { get; set; }
         public string DESCRIPTION { get; set; }

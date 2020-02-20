@@ -37,7 +37,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new {  serial=item.SERIALNUMBER, tube=item.TUBEID  }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Delete", "Delete", new { serial = item.SERIALNUMBER, tube = item.TUBEID })
         </td>
     </tr>
 }

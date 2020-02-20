@@ -39,13 +39,13 @@ namespace BikeShop.Controllers.api
 
         public IHttpActionResult GetPurchaseOrder(int id)
         {
-            PurchaseOrderViewModel p = null;
+            PurchaseOrderViewModel po = null;
 
             using (var ctx = new BikeShopEntities())
             {
-                p = ctx.PURCHASEORDERs
-                    .Where(bp => bp.PURCHASEID == id)
-                    .Select(bp => new PurchaseOrderViewModel()
+                po = ctx.PURCHASEORDERs
+                    .Where(p => p.PURCHASEID == id)
+                    .Select(p => new PurchaseOrderViewModel()
                     {
                         PURCHASEID = p.PURCHASEID,
                         EMPLOYEEID = p.EMPLOYEEID,
@@ -58,11 +58,11 @@ namespace BikeShop.Controllers.api
                         AMOUNTDUE = p.AMOUNTDUE
                     }).FirstOrDefault<PurchaseOrderViewModel>();
             }
-            if (p == null)
+            if (po == null)
             {
                 return NotFound();
             }
-            return Ok(p);
+            return Ok(po);
         }
 
         public IHttpActionResult PostNewBikePart(PurchaseOrderViewModel p)

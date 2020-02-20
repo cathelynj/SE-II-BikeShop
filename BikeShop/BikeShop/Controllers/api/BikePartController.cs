@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace BikeShop.Controllers.api
 {
-    public class BikePartsController : ApiController
+    public class BikePartController : ApiController
     {
         public IHttpActionResult GetAllBikeParts()
         {
@@ -79,6 +79,48 @@ namespace BikeShop.Controllers.api
                     EMPLOYEEID = bp.EMPLOYEEID
                 });
 
+                ctx.SaveChanges();
+            }
+            return Ok();
+        }
+
+        public IHttpActionResult Put(BikePartsViewModel bp)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Not a valid model");
+            using (var ctx = new BikeShopEntities())
+            {
+                var existingBP = ctx.BIKEPARTS.Where(w => w.SERIALNUMBER == bp.SERIALNUMBER && w.COMPONENTID == bp.COMPONENTID).FirstOrDefault<BIKEPART>();
+                if (existingBP != null)
+                {
+                    existingBP.SERIALNUMBER = bp.SERIALNUMBER;
+                    existingBP.COMPONENTID = bp.COMPONENTID;
+                    existingBP.SUBSTITUTEID = bp.SUBSTITUTEID;
+                    existingBP.LOCATION = bp.LOCATION;
+                    existingBP.QUANTITY = bp.QUANTITY;
+                    existingBP.DATEINSTALLED = bp.DATEINSTALLED;
+                    existingBP.EMPLOYEEID = bp.EMPLOYEEID;
+
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int serial, int comp)
+        {
+
+            using (var ctx = new BikeShopEntities())
+            {
+                var bp = ctx.BIKEPARTS
+                    .Where(w => w.SERIALNUMBER == serial && w.COMPONENTID == comp)
+                    .FirstOrDefault();
+
+                ctx.Entry(bp).State = System.Data.Entity.EntityState.Deleted;
                 ctx.SaveChanges();
             }
             return Ok();

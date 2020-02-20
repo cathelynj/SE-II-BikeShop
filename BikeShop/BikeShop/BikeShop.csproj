@@ -165,7 +165,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\api\BicycleController.cs" />
     <Compile Include="Controllers\api\BicycleTubeUsageController.cs" />
-    <Compile Include="Controllers\api\BikePartsController.cs" />
+    <Compile Include="Controllers\api\BikePartController.cs" />
     <Compile Include="Controllers\api\BikeTubesController.cs" />
     <Compile Include="Controllers\api\CityController.cs" />
     <Compile Include="Controllers\api\CommonSizeController.cs" />
@@ -192,6 +192,7 @@
     <Compile Include="Controllers\api\WorkAreaController.cs" />
     <Compile Include="Controllers\BicyclesController.cs" />
     <Compile Include="Controllers\BicycleTubeUsagesController.cs" />
+    <Compile Include="Controllers\BikePartsController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CustomerTransactionsController.cs" />
     <Compile Include="Controllers\base\HomeController.cs" />
@@ -415,6 +416,9 @@
     <Content Include="Views\BicycleTubeUsages\Index.cshtml" />
     <Content Include="Views\BicycleTubeUsages\Create.cshtml" />
     <Content Include="Views\BicycleTubeUsages\Edit.cshtml" />
+    <Content Include="Views\BikeParts\Index.cshtml" />
+    <Content Include="Views\BikeParts\Create.cshtml" />
+    <Content Include="Views\BikeParts\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

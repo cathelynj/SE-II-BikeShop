@@ -195,6 +195,7 @@
     <Compile Include="Controllers\BikePartsController.cs" />
     <Compile Include="Controllers\BikeTubesController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
+    <Compile Include="Controllers\CommonSizesController.cs" />
     <Compile Include="Controllers\CustomerTransactionsController.cs" />
     <Compile Include="Controllers\base\HomeController.cs" />
     <Compile Include="Controllers\ManufactorerTransactionsController.cs" />
@@ -425,6 +426,8 @@
     <Content Include="Views\BikeTubes\Index.cshtml" />
     <Content Include="Views\BikeTubes\Create.cshtml" />
     <Content Include="Views\BikeTubes\Edit.cshtml" />
+    <Content Include="Views\CommonSizes\Index.cshtml" />
+    <Content Include="Views\CommonSizes\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

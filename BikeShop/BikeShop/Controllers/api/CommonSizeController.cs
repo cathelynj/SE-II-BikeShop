@@ -29,5 +29,61 @@ namespace BikeShop.Controllers.api
 
             return Ok(commonsizes);
         }
+
+        public IHttpActionResult GetCommonSize(string model, int frame)
+        {
+            CommonSizeViewModel cs = null;
+
+            using (var ctx = new BikeShopEntities())
+            {
+                cs = ctx.COMMONSIZES
+                    .Where(c => c.MODELTYPE == model && c.FRAMESIZE == frame)
+                    .Select(c => new CommonSizeViewModel()
+                    {
+                        MODELTYPE = c.MODELTYPE,
+                        FRAMESIZE = c.FRAMESIZE
+                    }).FirstOrDefault<CommonSizeViewModel>();
+            }
+            if (cs == null)
+            {
+                return NotFound();
+            }
+            return Ok(cs);
+        }
+
+        public IHttpActionResult PostNewBikePart(CommonSizeViewModel c)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid data.");
+
+            using (var ctx = new BikeShopEntities())
+            {
+                ctx.COMMONSIZES.Add(new COMMONSIZE()
+                {
+                    MODELTYPE = c.MODELTYPE,
+                    FRAMESIZE = c.FRAMESIZE
+                });
+
+                ctx.SaveChanges();
+            }
+            return Ok();
+        }
+
+        //No need for PUT as the only fields in table are both primary keys, and cannot be modified.
+
+        public IHttpActionResult Delete(string modelType, int frameSize)
+        {
+
+            using (var ctx = new BikeShopEntities())
+            {
+                var bp = ctx.COMMONSIZES
+                    .Where(w => w.MODELTYPE == modelType && w.FRAMESIZE == frameSize)
+                    .FirstOrDefault();
+
+                ctx.Entry(bp).State = System.Data.Entity.EntityState.Deleted;
+                ctx.SaveChanges();
+            }
+            return Ok();
+        }
     }
 }

@@ -207,6 +207,7 @@
     <Compile Include="Controllers\ManufactorerTransactionsController.cs" />
     <Compile Include="Controllers\base\ValuesController.cs" />
     <Compile Include="Controllers\ModelSizesController.cs" />
+    <Compile Include="Controllers\ModelTypesController.cs" />
     <Compile Include="Controllers\WorkAreasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -455,6 +456,9 @@
     <Content Include="Views\ModelSizes\Index.cshtml" />
     <Content Include="Views\ModelSizes\Create.cshtml" />
     <Content Include="Views\ModelSizes\Edit.cshtml" />
+    <Content Include="Views\ModelTypes\Index.cshtml" />
+    <Content Include="Views\ModelTypes\Create.cshtml" />
+    <Content Include="Views\ModelTypes\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

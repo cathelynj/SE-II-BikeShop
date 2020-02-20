@@ -193,9 +193,10 @@
     <Compile Include="Controllers\BicyclesController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CustomerTransactionsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\base\HomeController.cs" />
     <Compile Include="Controllers\ManufactorerTransactionsController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\base\ValuesController.cs" />
+    <Compile Include="Controllers\WorkAreasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -407,6 +408,9 @@
     <Content Include="Views\Bicycles\Index.cshtml" />
     <Content Include="Views\Bicycles\Create.cshtml" />
     <Content Include="Views\Bicycles\Edit.cshtml" />
+    <Content Include="Views\WorkAreas\Index.cshtml" />
+    <Content Include="Views\WorkAreas\Create.cshtml" />
+    <Content Include="Views\WorkAreas\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

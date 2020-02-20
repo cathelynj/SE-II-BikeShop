@@ -60,6 +60,69 @@ namespace BikeShop.Controllers.api
             }
             return Ok(group);
         }
+
+        public IHttpActionResult PostNewGroupO(GroupOViewModel c)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid data.");
+
+            using (var ctx = new BikeShopEntities())
+            {
+                ctx.GROUPOes.Add(new GROUPO()
+                {
+                    COMPONENTGROUPID = c.ComponentGroupID,
+                    GROUPNAME = c.GroupName,
+                    BIKETYPE = c.BikeType,
+                    YEAR = c.Year,
+                    ENDYEAR = c.EndYear,
+                    WEIGHT = c.Weight
+                });
+
+                ctx.SaveChanges();
+            }
+            return Ok();
+        }
+
+        public IHttpActionResult Put(GroupOViewModel c)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Not a valid model");
+            using (var ctx = new BikeShopEntities())
+            {
+                var existingBP = ctx.GROUPOes.Where(w => w.COMPONENTGROUPID == c.ComponentGroupID).FirstOrDefault<GROUPO>();
+                if (existingBP != null)
+                {
+                    existingBP.COMPONENTGROUPID = c.ComponentGroupID;
+                    existingBP.GROUPNAME = c.GroupName;
+                    existingBP.BIKETYPE = c.BikeType;
+                    existingBP.YEAR = c.Year;
+                    existingBP.ENDYEAR = c.EndYear;
+                    existingBP.WEIGHT = c.Weight;
+
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+
+            using (var ctx = new BikeShopEntities())
+            {
+                var bp = ctx.GROUPOes
+                    .Where(w => w.COMPONENTGROUPID == id)
+                    .FirstOrDefault();
+
+                ctx.Entry(bp).State = System.Data.Entity.EntityState.Deleted;
+                ctx.SaveChanges();
+            }
+            return Ok();
+        }
     }
 }
 

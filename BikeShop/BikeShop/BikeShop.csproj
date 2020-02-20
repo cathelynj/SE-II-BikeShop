@@ -174,6 +174,7 @@
     <Compile Include="Controllers\api\CustomerController.cs" />
     <Compile Include="Controllers\api\CustomerTransactionController.cs" />
     <Compile Include="Controllers\api\EmployeeController.cs" />
+    <Compile Include="Controllers\api\GroupOController.cs" />
     <Compile Include="Controllers\api\LetterStyleController.cs" />
     <Compile Include="Controllers\api\ManufactorerController.cs" />
     <Compile Include="Controllers\api\ManufactorerTransactionController.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Controllers\CustomerTransactionsController.cs" />
     <Compile Include="Controllers\base\HomeController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\GroupOsController.cs" />
     <Compile Include="Controllers\LetterStylesController.cs" />
     <Compile Include="Controllers\ManufactorersController.cs" />
     <Compile Include="Controllers\ManufactorerTransactionsController.cs" />
@@ -463,6 +465,9 @@
     <Content Include="Views\Paints\Index.cshtml" />
     <Content Include="Views\Paints\Create.cshtml" />
     <Content Include="Views\Paints\Edit.cshtml" />
+    <Content Include="Views\GroupOs\Index.cshtml" />
+    <Content Include="Views\GroupOs\Create.cshtml" />
+    <Content Include="Views\GroupOs\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

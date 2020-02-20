@@ -31,14 +31,14 @@ namespace BikeShop.Controllers.api
             return Ok(bicycleTubeUsages);
         }
 
-        public IHttpActionResult GetBicycleTubeUsage(int id)
+        public IHttpActionResult GetBicycleTubeUsage(int serial, int tube)
         {
             BicycleTubeUsageViewModel bicycleTubeUsage = null;
 
             using (var ctx = new BikeShopEntities())
             {
                 bicycleTubeUsage = ctx.BICYCLETUBEUSAGEs
-                    .Where(btu => btu.SERIALNUMBER == id)
+                    .Where(btu => btu.SERIALNUMBER == serial && btu.TUBEID == tube)
                     .Select(btu => new BicycleTubeUsageViewModel()
                     {
                         SERIALNUMBER = btu.SERIALNUMBER,
@@ -67,6 +67,44 @@ namespace BikeShop.Controllers.api
                     QUANTITY = btu.QUANTITY
                 });
 
+                ctx.SaveChanges();
+            }
+            return Ok();
+        }
+
+        public IHttpActionResult Put(BicycleTubeUsageViewModel btu)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Not a valid model");
+            using (var ctx = new BikeShopEntities())
+            {
+                var existingBTU = ctx.BICYCLETUBEUSAGEs.Where(b => b.SERIALNUMBER == btu.SERIALNUMBER && b.TUBEID == btu.TUBEID).FirstOrDefault<BICYCLETUBEUSAGE>();
+                if (existingBTU != null)
+                {
+                    existingBTU.SERIALNUMBER = btu.SERIALNUMBER;
+                    existingBTU.TUBEID = btu.TUBEID;
+                    existingBTU.QUANTITY = btu.QUANTITY;
+
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int serial, int tube)
+        {
+
+            using (var ctx = new BikeShopEntities())
+            {
+                var btu = ctx.BICYCLETUBEUSAGEs
+                    .Where(b => b.SERIALNUMBER == serial && b.TUBEID == tube)
+                    .FirstOrDefault();
+
+                ctx.Entry(btu).State = System.Data.Entity.EntityState.Deleted;
                 ctx.SaveChanges();
             }
             return Ok();

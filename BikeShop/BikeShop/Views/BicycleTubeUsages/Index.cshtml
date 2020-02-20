@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BikeShop.Models.ViewModels.BicycleTubeUsageViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SERIALNUMBER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TUBEID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QUANTITY)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SERIALNUMBER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TUBEID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUANTITY)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  serial=item.SERIALNUMBER, tube=item.TUBEID  }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

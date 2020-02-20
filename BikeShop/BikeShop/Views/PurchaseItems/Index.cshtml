@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BikeShop.Models.ViewModels.PurchaseItemViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PURCHASEID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COMPONENTID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRICEPAID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QUANTITY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QUANTITYRECEIVED)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PURCHASEID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COMPONENTID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRICEPAID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUANTITY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUANTITYRECEIVED)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { purchaseID=item.PURCHASEID, componentID=item.COMPONENTID }) |
+            @Html.ActionLink("Delete", "Delete", new { purchaseID = item.PURCHASEID, componentID = item.COMPONENTID })
+        </td>
+    </tr>
+}
+
+</table>

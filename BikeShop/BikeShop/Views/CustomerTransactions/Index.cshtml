@@ -13,13 +13,13 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.CUSTOMERID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRANSACTIONDATE)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.EMPLOYEEID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMPLOYEEFIRST)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMPLOYEELAST)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AMOUNT)
@@ -36,13 +36,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.CUSTOMERID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRANSACTIONDATE)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.EMPLOYEEID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EMPLOYEEFIRST)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMPLOYEELAST)
+            @Html.DisplayFor(modelItem => item.EMPLOYEEID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AMOUNT)
@@ -54,9 +57,9 @@
             @Html.DisplayFor(modelItem => item.REFERENCE)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.CUSTOMERID, date = item.TRANSACTIONDATE }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Delete", "Delete", new { id = item.CUSTOMERID, date = item.TRANSACTIONDATE })
         </td>
     </tr>
 }

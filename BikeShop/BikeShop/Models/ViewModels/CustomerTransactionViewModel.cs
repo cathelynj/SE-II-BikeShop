@@ -13,8 +13,6 @@ namespace BikeShop.Models.ViewModels
         [Key]
         public System.DateTime TRANSACTIONDATE { get; set; }
         public Nullable<int> EMPLOYEEID { get; set; }
-        public string EMPLOYEEFIRST { get; set; }
-        public string EMPLOYEELAST { get; set; }
         public Nullable<decimal> AMOUNT { get; set; }
         public string DESCRIPTION { get; set; }
         public Nullable<int> REFERENCE { get; set; }

@@ -107,5 +107,55 @@ namespace BikeShop.Controllers
             }
             return Ok();
         }
+
+        public IHttpActionResult Put(EmployeeViewModel e)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Not a valid model");
+            using (var ctx = new BikeShopEntities())
+            {
+                var existingBP = ctx.EMPLOYEEs.Where(w => w.EMPLOYEEID == e.EMPLOYEEID).FirstOrDefault<EMPLOYEE>();
+                if (existingBP != null)
+                {
+                    existingBP.EMPLOYEEID = e.EMPLOYEEID;
+                    existingBP.TAXPAYERID = e.TAXPAYERID;
+                    existingBP.LASTNAME = e.LASTNAME;
+                    existingBP.FIRSTNAME = e.FIRSTNAME;
+                    existingBP.HOMEPHONE = e.HOMEPHONE;
+                    existingBP.ADDRESS = e.ADDRESS;
+                    existingBP.ZIPCODE = e.ZIPCODE;
+                    existingBP.CITYID = e.CITYID;
+                    existingBP.DATEHIRED = e.DATEHIRED;
+                    existingBP.DATERELEASED = e.DATERELEASED;
+                    existingBP.CURRENTMANAGER = e.CURRENTMANAGER;
+                    existingBP.SALARYGRADE = e.SALARYGRADE;
+                    existingBP.SALARY = e.SALARY;
+                    existingBP.TITLE = e.TITLE;
+                    existingBP.WORKAREA = e.WORKAREA;
+
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+
+            using (var ctx = new BikeShopEntities())
+            {
+                var bp = ctx.EMPLOYEEs
+                    .Where(w => w.EMPLOYEEID == id)
+                    .FirstOrDefault();
+
+                ctx.Entry(bp).State = System.Data.Entity.EntityState.Deleted;
+                ctx.SaveChanges();
+            }
+            return Ok();
+        }
     }
 }

@@ -200,6 +200,7 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\CustomerTransactionsController.cs" />
     <Compile Include="Controllers\base\HomeController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\ManufactorerTransactionsController.cs" />
     <Compile Include="Controllers\base\ValuesController.cs" />
     <Compile Include="Controllers\WorkAreasController.cs" />
@@ -438,6 +439,9 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Create.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

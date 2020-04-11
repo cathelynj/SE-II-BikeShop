@@ -11,7 +11,52 @@ namespace BikeShop.Controllers.api
 {
     public class BicycleController : ApiController
     {
-        public IHttpActionResult GetAllBicycles()
+        public IHttpActionResult GetMaxBicycle()
+        {
+            BicycleViewModel bike = null;
+            using (var ctx = new BikeShopEntities())
+            {
+                int max = ctx.BICYCLEs.Max(b => b.SERIALNUMBER);
+                bike = ctx.BICYCLEs.Where(b => b.SERIALNUMBER == max)
+                    .Select(b => new BicycleViewModel()
+                    {
+                        SERIALNUMBER = b.SERIALNUMBER,
+                        CUSTOMERID = b.CUSTOMERID,
+                        MODELTYPE = b.MODELTYPE,
+                        PAINTID = b.PAINTID,
+                        FRAMESIZE = b.FRAMESIZE,
+                        ORDERDATE = b.ORDERDATE,
+                        STARTDATE = b.STARTDATE,
+                        SHIPDATE = b.SHIPDATE,
+                        SHIPEMPLOYEE = b.SHIPEMPLOYEE,
+                        FRAMEASSEMBLER = b.FRAMEASSEMBLER,
+                        PAINTER = b.PAINTER,
+                        CONSTRUCTION = b.CONSTRUCTION,
+                        WATERBOTTLEBRAZEONS = b.WATERBOTTLEBRAZEONS,
+                        CUSTOMNAME = b.CUSTOMNAME,
+                        LETTERSTYLEID = b.LETTERSTYLEID,
+                        STOREID = b.STOREID,
+                        EMPLOYEEID = b.EMPLOYEEID,
+                        TOPTUBE = b.TOPTUBE,
+                        CHAINSTAY = b.CHAINSTAY,
+                        HEADTUBEANGLE = b.HEADTUBEANGLE,
+                        SEATTUBEANGLE = b.SEATTUBEANGLE,
+                        LISTPRICE = b.LISTPRICE,
+                        SALEPRICE = b.SALEPRICE,
+                        SALESTAX = b.SALESTAX,
+                        SALESTATE = b.SALESTATE,
+                        SHIPPRICE = b.SHIPPRICE,
+                        FRAMEPRICE = b.FRAMEPRICE,
+                        COMPONENTLIST = b.COMPONENTLIST
+                    }).FirstOrDefault<BicycleViewModel>();
+            }
+            if (bike == null)
+            {
+                return NotFound();
+            }
+            return Ok(bike);
+        }
+        /*public IHttpActionResult GetAllBicycles()
         {
             IList<BicycleViewModel> bicycles = null;
             using (var ctx = new BikeShopEntities())
@@ -54,7 +99,7 @@ namespace BikeShop.Controllers.api
             }
 
             return Ok(bicycles);
-        }
+        }*/
 
         public IHttpActionResult GetBicycle(int id)
         {

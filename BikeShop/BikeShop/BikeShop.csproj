@@ -166,6 +166,7 @@
     <Compile Include="Controllers\api\BicycleController.cs" />
     <Compile Include="Controllers\api\BicycleTubeUsageController.cs" />
     <Compile Include="Controllers\api\BikePartController.cs" />
+    <Compile Include="Controllers\api\BikeSalesTypeController.cs" />
     <Compile Include="Controllers\api\BikeTubeController.cs" />
     <Compile Include="Controllers\api\CityController.cs" />
     <Compile Include="Controllers\api\CommonSizeController.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Controllers\api\EmployeeController.cs" />
     <Compile Include="Controllers\api\GroupOController.cs" />
     <Compile Include="Controllers\api\LetterStyleController.cs" />
+    <Compile Include="Controllers\api\LoginAttemptsController.cs" />
     <Compile Include="Controllers\api\ManufactorerController.cs" />
     <Compile Include="Controllers\api\ManufactorerTransactionController.cs" />
     <Compile Include="Controllers\api\ModelSizeController.cs" />
@@ -190,6 +192,7 @@
     <Compile Include="Controllers\api\SampleStreetController.cs" />
     <Compile Include="Controllers\api\StateTaxRateController.cs" />
     <Compile Include="Controllers\api\TempDateMadeController.cs" />
+    <Compile Include="Controllers\api\TransactionsController.cs" />
     <Compile Include="Controllers\api\TubeMaterialController.cs" />
     <Compile Include="Controllers\api\WorkAreaController.cs" />
     <Compile Include="Controllers\BicyclesController.cs" />
@@ -280,11 +283,29 @@
     <Compile Include="Models\LETTERSTYLE.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginAttempt.cs">
+      <DependentUpon>BikeShopDataAccess.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MANUFACTURER.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MANUFACTURERTRANSACTION.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetricsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MetricsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetricsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MetricsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetricsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MetricsModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\MODELSIZE.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>
@@ -310,6 +331,9 @@
     <Compile Include="Models\REVISIONHISTORY.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SalesType.cs">
+      <DependentUpon>MetricsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SAMPLENAME.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>
     </Compile>
@@ -322,12 +346,16 @@
     <Compile Include="Models\TEMPDATEMADE.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Transaction.cs">
+      <DependentUpon>MetricsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TUBEMATERIAL.cs">
       <DependentUpon>BikeShopDataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\BicycleTubeUsageViewModel.cs" />
     <Compile Include="Models\ViewModels\BicycleViewModel.cs" />
     <Compile Include="Models\ViewModels\BikePartsViewModel.cs" />
+    <Compile Include="Models\ViewModels\BikeSalesType.cs" />
     <Compile Include="Models\ViewModels\BikeTubesViewModel.cs" />
     <Compile Include="Models\ViewModels\CityViewModel.cs" />
     <Compile Include="Models\ViewModels\CommonSizeViewModel.cs" />
@@ -338,6 +366,7 @@
     <Compile Include="Models\ViewModels\EmployeeViewModel.cs" />
     <Compile Include="Models\ViewModels\GroupOViewModel.cs" />
     <Compile Include="Models\ViewModels\LetterStyleViewModel.cs" />
+    <Compile Include="Models\ViewModels\LoginAttempts.cs" />
     <Compile Include="Models\ViewModels\ManufactorerTransactionViewModel.cs" />
     <Compile Include="Models\ViewModels\ManufactorerViewModel.cs" />
     <Compile Include="Models\ViewModels\ModelSizeViewModel.cs" />
@@ -352,6 +381,7 @@
     <Compile Include="Models\ViewModels\SampleStreetViewModel.cs" />
     <Compile Include="Models\ViewModels\StateTaxRateViewModel.cs" />
     <Compile Include="Models\ViewModels\TempDateMadeViewModel.cs" />
+    <Compile Include="Models\ViewModels\Transactions.cs" />
     <Compile Include="Models\ViewModels\TubeMaterialViewModel.cs" />
     <Compile Include="Models\ViewModels\WorkAreaViewModel.cs" />
     <Compile Include="Models\WORKAREA.cs">
@@ -377,6 +407,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BikeShopDataAccess.edmx</DependentUpon>
       <LastGenOutput>BikeShopDataAccess.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MetricsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MetricsModel.edmx</DependentUpon>
+      <LastGenOutput>MetricsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MetricsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MetricsModel.edmx</DependentUpon>
+      <LastGenOutput>MetricsModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -406,6 +446,16 @@
     <Content Include="Models\BikeShopDataAccess.edmx.diagram">
       <DependentUpon>BikeShopDataAccess.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\MetricsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MetricsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MetricsModel.edmx.diagram">
+      <DependentUpon>MetricsModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\BikeShop-FrontEnd - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\BikeShop-FrontEnd - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\BikeShop-FrontEnd - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

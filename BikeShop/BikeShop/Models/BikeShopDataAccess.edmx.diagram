@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f9a1f9e62d7f454086702b92c9979f87" Name="Diagram1">
+      <Diagram DiagramId="f9a1f9e62d7f454086702b92c9979f87" Name="Diagram1" ZoomLevel="114">
         <EntityTypeShape EntityType="BikeShopModel.BICYCLE" Width="1.5" PointX="8.25" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="BikeShopModel.BICYCLETUBEUSAGE" Width="1.5" PointX="10.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.BICYCLETUBEUSAGE" Width="1.5" PointX="10.5" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BikeShopModel.BIKEPART" Width="1.5" PointX="10.5" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BikeShopModel.BIKETUBE" Width="1.5" PointX="10.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.BIKETUBE" Width="1.5" PointX="10.5" PointY="17" IsExpanded="true" />
         <EntityTypeShape EntityType="BikeShopModel.CITY" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BikeShopModel.COMMONSIZE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BikeShopModel.COMPONENT" Width="1.5" PointX="8.25" PointY="23.5" IsExpanded="true" />
@@ -17,12 +17,12 @@
         <EntityTypeShape EntityType="BikeShopModel.CUSTOMERTRANSACTION" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BikeShopModel.EMPLOYEE" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BikeShopModel.GROUPO" Width="1.5" PointX="10.5" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BikeShopModel.LETTERSTYLE" Width="1.5" PointX="6" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.LETTERSTYLE" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BikeShopModel.MANUFACTURER" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BikeShopModel.MANUFACTURERTRANSACTION" Width="1.5" PointX="5.25" PointY="28.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BikeShopModel.MODELSIZE" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BikeShopModel.MODELTYPE" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BikeShopModel.PAINT" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.MODELSIZE" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.MODELTYPE" Width="1.5" PointX="6" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.PAINT" Width="1.5" PointX="6" PointY="14.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BikeShopModel.PREFERENCE" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BikeShopModel.PURCHASEITEM" Width="1.5" PointX="13.5" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BikeShopModel.PURCHASEORDER" Width="1.5" PointX="5.25" PointY="21.5" IsExpanded="true" />
@@ -61,6 +61,7 @@
         <AssociationConnector Association="BikeShopModel.FK_MODELTYPE" ManuallyRouted="false" />
         <AssociationConnector Association="BikeShopModel.FK_REFERENCE20" ManuallyRouted="false" />
         <AssociationConnector Association="BikeShopModel.GROUPCOMPONENTS" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BikeShopModel.LoginAttempt" Width="1.5" PointX="9.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

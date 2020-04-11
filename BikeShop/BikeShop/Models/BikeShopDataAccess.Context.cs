@@ -54,5 +54,6 @@ namespace BikeShop.Models
         public virtual DbSet<TEMPDATEMADE> TEMPDATEMADEs { get; set; }
         public virtual DbSet<TUBEMATERIAL> TUBEMATERIALs { get; set; }
         public virtual DbSet<WORKAREA> WORKAREAs { get; set; }
+        public virtual DbSet<LoginAttempt> LoginAttempts { get; set; }
     }
 }

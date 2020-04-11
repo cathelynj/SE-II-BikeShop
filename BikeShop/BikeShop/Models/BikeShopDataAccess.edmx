@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BikeShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BikeShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BICYCLE">
           <Key>
             <PropertyRef Name="SERIALNUMBER" />
@@ -109,7 +109,7 @@
           <Property Name="WEIGHT" Type="int" />
           <Property Name="YEAR" Type="int" />
           <Property Name="ENDYEAR" Type="int" />
-          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
+          <Property Name="DESCRIPTION" Type="varchar(max)" />
           <Property Name="LISTPRICE" Type="numeric" Precision="38" Scale="4" />
           <Property Name="ESTIMATEDCOST" Type="numeric" Precision="38" Scale="4" />
           <Property Name="QUANTITYONHAND" Type="int" />
@@ -192,6 +192,14 @@
           </Key>
           <Property Name="LETTERSTYLE" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DESCRIPTION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoginAttempts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Successful" Type="bit" />
         </EntityType>
         <EntityType Name="MANUFACTURER">
           <Key>
@@ -375,7 +383,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BIKEEMPLOYEE">
+        <Association Name="FK_BIKEEMPLOYEES">
           <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -532,20 +540,6 @@
             </Principal>
             <Dependent Role="COMPONENT">
               <PropertyRef Name="CATEGORY" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_REFERENCE14">
-          <End Role="COMPONENT" Type="Self.COMPONENT" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="GROUPCOMPONENTS" Type="Self.GROUPCOMPONENTS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="COMPONENT">
-              <PropertyRef Name="COMPONENTID" />
-            </Principal>
-            <Dependent Role="GROUPCOMPONENTS">
-              <PropertyRef Name="COMPONENTID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -756,6 +750,7 @@
           <EntitySet Name="GROUPCOMPONENTS" EntityType="Self.GROUPCOMPONENTS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GROUPO" EntityType="Self.GROUPO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LETTERSTYLE" EntityType="Self.LETTERSTYLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginAttempts" EntityType="Self.LoginAttempts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MANUFACTURER" EntityType="Self.MANUFACTURER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MANUFACTURERTRANSACTION" EntityType="Self.MANUFACTURERTRANSACTION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MODELSIZE" EntityType="Self.MODELSIZE" Schema="dbo" store:Type="Tables" />
@@ -776,7 +771,7 @@
             <End Role="CUSTOMER" EntitySet="CUSTOMER" />
             <End Role="BICYCLE" EntitySet="BICYCLE" />
           </AssociationSet>
-          <AssociationSet Name="FK_BIKEEMPLOYEE" Association="Self.FK_BIKEEMPLOYEE">
+          <AssociationSet Name="FK_BIKEEMPLOYEES" Association="Self.FK_BIKEEMPLOYEES">
             <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
             <End Role="BICYCLE" EntitySet="BICYCLE" />
           </AssociationSet>
@@ -823,10 +818,6 @@
           <AssociationSet Name="FK_REFERENCE" Association="Self.FK_REFERENCE">
             <End Role="COMPONENTNAME" EntitySet="COMPONENTNAME" />
             <End Role="COMPONENT" EntitySet="COMPONENT" />
-          </AssociationSet>
-          <AssociationSet Name="FK_REFERENCE14" Association="Self.FK_REFERENCE14">
-            <End Role="COMPONENT" EntitySet="COMPONENT" />
-            <End Role="GROUPCOMPONENTS" EntitySet="GROUPCOMPONENTS" />
           </AssociationSet>
           <AssociationSet Name="FK_REFERENCE15" Association="Self.FK_REFERENCE15">
             <End Role="GROUPO" EntitySet="GROUPO" />
@@ -885,8 +876,7 @@
             <End Role="BIKETUBES" EntitySet="BIKETUBES" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BikeShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1014,7 +1004,7 @@
           <Property Name="WEIGHT" Type="Int32" />
           <Property Name="YEAR" Type="Int32" />
           <Property Name="ENDYEAR" Type="Int32" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="LISTPRICE" Type="Decimal" Precision="38" Scale="4" />
           <Property Name="ESTIMATEDCOST" Type="Decimal" Precision="38" Scale="4" />
           <Property Name="QUANTITYONHAND" Type="Int32" />
@@ -1786,7 +1776,16 @@
             <End Role="COMPONENT" EntitySet="COMPONENTs" />
             <End Role="GROUPO" EntitySet="GROUPOes" />
           </AssociationSet>
+          <EntitySet Name="LoginAttempts" EntityType="BikeShopModel.LoginAttempt" />
         </EntityContainer>
+        <EntityType Name="LoginAttempt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Successful" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2169,6 +2168,15 @@
               <ScalarProperty Name="COMPONENTGROUPID" ColumnName="GROUPID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="LoginAttempts">
+            <EntityTypeMapping TypeName="BikeShopModel.LoginAttempt">
+              <MappingFragment StoreEntitySet="LoginAttempts">
+                <ScalarProperty Name="Successful" ColumnName="Successful" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

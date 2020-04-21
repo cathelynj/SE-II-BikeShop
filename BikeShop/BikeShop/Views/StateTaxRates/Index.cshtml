@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BikeShop.Models.ViewModels.StateTaxRateViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.STATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TAXRATE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.STATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TAXRATE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.STATE }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.STATE })
+        </td>
+    </tr>
+}
+
+</table>

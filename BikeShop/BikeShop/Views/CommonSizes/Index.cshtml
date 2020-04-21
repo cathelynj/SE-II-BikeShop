@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BikeShop.Models.ViewModels.CommonSizeViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MODELTYPE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FRAMESIZE)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MODELTYPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FRAMESIZE)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
+            @Html.ActionLink("Delete", "Delete", new { model=item.MODELTYPE, frame=item.FRAMESIZE })
+        </td>
+    </tr>
+}
+
+</table>

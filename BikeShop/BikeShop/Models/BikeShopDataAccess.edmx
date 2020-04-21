@@ -1,0 +1,2203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BikeShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BICYCLE">
+          <Key>
+            <PropertyRef Name="SERIALNUMBER" />
+          </Key>
+          <Property Name="SERIALNUMBER" Type="int" Nullable="false" />
+          <Property Name="CUSTOMERID" Type="int" />
+          <Property Name="MODELTYPE" Type="varchar" MaxLength="50" />
+          <Property Name="PAINTID" Type="int" />
+          <Property Name="FRAMESIZE" Type="int" />
+          <Property Name="ORDERDATE" Type="date" />
+          <Property Name="STARTDATE" Type="date" />
+          <Property Name="SHIPDATE" Type="date" />
+          <Property Name="SHIPEMPLOYEE" Type="int" />
+          <Property Name="FRAMEASSEMBLER" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PAINTER" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CONSTRUCTION" Type="varchar" MaxLength="50" />
+          <Property Name="WATERBOTTLEBRAZEONS" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CUSTOMNAME" Type="varchar" MaxLength="50" />
+          <Property Name="LETTERSTYLEID" Type="varchar" MaxLength="50" />
+          <Property Name="STOREID" Type="int" />
+          <Property Name="EMPLOYEEID" Type="int" />
+          <Property Name="TOPTUBE" Type="int" />
+          <Property Name="CHAINSTAY" Type="int" />
+          <Property Name="HEADTUBEANGLE" Type="int" />
+          <Property Name="SEATTUBEANGLE" Type="int" />
+          <Property Name="LISTPRICE" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="SALEPRICE" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="SALESTAX" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="SALESTATE" Type="varchar" MaxLength="50" />
+          <Property Name="SHIPPRICE" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="FRAMEPRICE" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="COMPONENTLIST" Type="numeric" Precision="38" Scale="4" />
+        </EntityType>
+        <EntityType Name="BICYCLETUBEUSAGE">
+          <Key>
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="TUBEID" />
+          </Key>
+          <Property Name="SERIALNUMBER" Type="int" Nullable="false" />
+          <Property Name="TUBEID" Type="int" Nullable="false" />
+          <Property Name="QUANTITY" Type="int" />
+        </EntityType>
+        <EntityType Name="BIKEPARTS">
+          <Key>
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="COMPONENTID" />
+          </Key>
+          <Property Name="SERIALNUMBER" Type="int" Nullable="false" />
+          <Property Name="COMPONENTID" Type="int" Nullable="false" />
+          <Property Name="SUBSTITUTEID" Type="int" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="50" />
+          <Property Name="QUANTITY" Type="int" />
+          <Property Name="DATEINSTALLED" Type="date" />
+          <Property Name="EMPLOYEEID" Type="int" />
+        </EntityType>
+        <EntityType Name="BIKETUBES">
+          <Key>
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="TUBENAME" />
+          </Key>
+          <Property Name="SERIALNUMBER" Type="int" Nullable="false" />
+          <Property Name="TUBENAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TUBEID" Type="int" />
+          <Property Name="LENGTH" Type="int" />
+        </EntityType>
+        <EntityType Name="CITY">
+          <Key>
+            <PropertyRef Name="CITYID" />
+          </Key>
+          <Property Name="CITYID" Type="int" Nullable="false" />
+          <Property Name="ZIPCODE" Type="varchar" MaxLength="50" />
+          <Property Name="CITY" Type="varchar" MaxLength="50" />
+          <Property Name="STATE" Type="varchar" MaxLength="50" />
+          <Property Name="AREACODE" Type="varchar" MaxLength="50" />
+          <Property Name="POPULATION1990" Type="int" />
+          <Property Name="POPULATION1980" Type="int" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="50" />
+          <Property Name="LATITUDE" Type="int" />
+          <Property Name="LONGITUDE" Type="int" />
+          <Property Name="POPULATIONCDF" Type="int" />
+        </EntityType>
+        <EntityType Name="COMMONSIZES">
+          <Key>
+            <PropertyRef Name="MODELTYPE" />
+            <PropertyRef Name="FRAMESIZE" />
+          </Key>
+          <Property Name="MODELTYPE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FRAMESIZE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COMPONENT">
+          <Key>
+            <PropertyRef Name="COMPONENTID" />
+          </Key>
+          <Property Name="COMPONENTID" Type="int" Nullable="false" />
+          <Property Name="MANUFACTURERID" Type="int" />
+          <Property Name="PRODUCTNUMBER" Type="varchar" MaxLength="50" />
+          <Property Name="ROAD" Type="varchar" MaxLength="50" />
+          <Property Name="CATEGORY" Type="varchar" MaxLength="50" />
+          <Property Name="LENGTH" Type="int" />
+          <Property Name="HEIGHT" Type="int" />
+          <Property Name="WIDTH" Type="int" />
+          <Property Name="WEIGHT" Type="int" />
+          <Property Name="YEAR" Type="int" />
+          <Property Name="ENDYEAR" Type="int" />
+          <Property Name="DESCRIPTION" Type="varchar(max)" />
+          <Property Name="LISTPRICE" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="ESTIMATEDCOST" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="QUANTITYONHAND" Type="int" />
+        </EntityType>
+        <EntityType Name="COMPONENTNAME">
+          <Key>
+            <PropertyRef Name="COMPONENTNAME" />
+          </Key>
+          <Property Name="COMPONENTNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ASSEMBLYORDER" Type="int" />
+          <Property Name="DESCRIPTION" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMERID" />
+          </Key>
+          <Property Name="CUSTOMERID" Type="int" Nullable="false" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="FIRSTNAME" Type="varchar" MaxLength="50" />
+          <Property Name="LASTNAME" Type="varchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="50" />
+          <Property Name="ZIPCODE" Type="varchar" MaxLength="50" />
+          <Property Name="CITYID" Type="int" Nullable="false" />
+          <Property Name="BALANCEDUE" Type="numeric" Precision="38" Scale="4" />
+        </EntityType>
+        <EntityType Name="CUSTOMERTRANSACTION">
+          <Key>
+            <PropertyRef Name="CUSTOMERID" />
+            <PropertyRef Name="TRANSACTIONDATE" />
+          </Key>
+          <Property Name="CUSTOMERID" Type="int" Nullable="false" />
+          <Property Name="TRANSACTIONDATE" Type="date" Nullable="false" />
+          <Property Name="EMPLOYEEID" Type="int" />
+          <Property Name="AMOUNT" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="250" />
+          <Property Name="REFERENCE" Type="int" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMPLOYEEID" />
+          </Key>
+          <Property Name="EMPLOYEEID" Type="int" Nullable="false" />
+          <Property Name="TAXPAYERID" Type="varchar" MaxLength="50" />
+          <Property Name="LASTNAME" Type="varchar" MaxLength="50" />
+          <Property Name="FIRSTNAME" Type="varchar" MaxLength="50" />
+          <Property Name="HOMEPHONE" Type="varchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="50" />
+          <Property Name="ZIPCODE" Type="varchar" MaxLength="50" />
+          <Property Name="CITYID" Type="int" />
+          <Property Name="DATEHIRED" Type="date" />
+          <Property Name="DATERELEASED" Type="date" />
+          <Property Name="CURRENTMANAGER" Type="int" />
+          <Property Name="SALARYGRADE" Type="int" />
+          <Property Name="SALARY" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="TITLE" Type="varchar" MaxLength="100" />
+          <Property Name="WORKAREA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GROUPCOMPONENTS">
+          <Key>
+            <PropertyRef Name="GROUPID" />
+            <PropertyRef Name="COMPONENTID" />
+          </Key>
+          <Property Name="GROUPID" Type="int" Nullable="false" />
+          <Property Name="COMPONENTID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GROUPO">
+          <Key>
+            <PropertyRef Name="COMPONENTGROUPID" />
+          </Key>
+          <Property Name="COMPONENTGROUPID" Type="int" Nullable="false" />
+          <Property Name="GROUPNAME" Type="varchar" MaxLength="50" />
+          <Property Name="BIKETYPE" Type="varchar" MaxLength="50" />
+          <Property Name="YEAR" Type="int" />
+          <Property Name="ENDYEAR" Type="int" />
+          <Property Name="WEIGHT" Type="numeric" Precision="15" Scale="4" />
+        </EntityType>
+        <EntityType Name="LETTERSTYLE">
+          <Key>
+            <PropertyRef Name="LETTERSTYLE" />
+          </Key>
+          <Property Name="LETTERSTYLE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoginAttempts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Successful" Type="bit" />
+        </EntityType>
+        <EntityType Name="MANUFACTURER">
+          <Key>
+            <PropertyRef Name="MANUFACTURERID" />
+          </Key>
+          <Property Name="MANUFACTURERID" Type="int" Nullable="false" />
+          <Property Name="MANUFACTURERNAME" Type="varchar" MaxLength="50" />
+          <Property Name="CONTACTNAME" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="50" />
+          <Property Name="ZIPCODE" Type="varchar" MaxLength="50" />
+          <Property Name="CITYID" Type="int" />
+          <Property Name="BALANCEDUE" Type="numeric" Precision="38" Scale="4" />
+        </EntityType>
+        <EntityType Name="MANUFACTURERTRANSACTION">
+          <Key>
+            <PropertyRef Name="MANUFACTURERID" />
+            <PropertyRef Name="TRANSACTIONDATE" />
+            <PropertyRef Name="REFERENCE" />
+          </Key>
+          <Property Name="MANUFACTURERID" Type="int" Nullable="false" />
+          <Property Name="TRANSACTIONDATE" Type="date" Nullable="false" />
+          <Property Name="EMPLOYEEID" Type="int" />
+          <Property Name="AMOUNT" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="250" />
+          <Property Name="REFERENCE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MODELSIZE">
+          <Key>
+            <PropertyRef Name="MODELTYPE" />
+            <PropertyRef Name="MSIZE" />
+          </Key>
+          <Property Name="MODELTYPE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MSIZE" Type="int" Nullable="false" />
+          <Property Name="TOPTUBE" Type="int" />
+          <Property Name="CHAINSTAY" Type="int" />
+          <Property Name="TOTALLENGTH" Type="int" />
+          <Property Name="GROUNDCLEARANCE" Type="int" />
+          <Property Name="HEADTUBEANGLE" Type="int" />
+          <Property Name="SEATTUBEANGLE" Type="int" />
+        </EntityType>
+        <EntityType Name="MODELTYPE">
+          <Key>
+            <PropertyRef Name="MODELTYPE" />
+          </Key>
+          <Property Name="MODELTYPE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="50" />
+          <Property Name="COMPONENTID" Type="int" />
+        </EntityType>
+        <EntityType Name="PAINT">
+          <Key>
+            <PropertyRef Name="PAINTID" />
+          </Key>
+          <Property Name="PAINTID" Type="int" Nullable="false" />
+          <Property Name="COLORNAME" Type="varchar" MaxLength="50" />
+          <Property Name="COLORSTYLE" Type="varchar" MaxLength="50" />
+          <Property Name="COLORLIST" Type="varchar" MaxLength="50" />
+          <Property Name="DATEINTRODUCED" Type="date" />
+          <Property Name="DATEDISCONTINUED" Type="date" />
+        </EntityType>
+        <EntityType Name="PREFERENCE">
+          <Key>
+            <PropertyRef Name="ITEMNAME" />
+          </Key>
+          <Property Name="ITEMNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VALUE" Type="int" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="250" />
+          <Property Name="DATECHANGED" Type="date" />
+        </EntityType>
+        <EntityType Name="PURCHASEITEM">
+          <Key>
+            <PropertyRef Name="PURCHASEID" />
+            <PropertyRef Name="COMPONENTID" />
+          </Key>
+          <Property Name="PURCHASEID" Type="int" Nullable="false" />
+          <Property Name="COMPONENTID" Type="int" Nullable="false" />
+          <Property Name="PRICEPAID" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="QUANTITY" Type="int" />
+          <Property Name="QUANTITYRECEIVED" Type="int" />
+        </EntityType>
+        <EntityType Name="PURCHASEORDER">
+          <Key>
+            <PropertyRef Name="PURCHASEID" />
+          </Key>
+          <Property Name="PURCHASEID" Type="int" Nullable="false" />
+          <Property Name="EMPLOYEEID" Type="int" />
+          <Property Name="MANUFACTURERID" Type="int" />
+          <Property Name="TOTALLIST" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="SHIPPINGCOST" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="DISCOUNT" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="ORDERDATE" Type="date" />
+          <Property Name="RECEIVEDATE" Type="date" />
+          <Property Name="AMOUNTDUE" Type="numeric" Precision="38" Scale="4" />
+        </EntityType>
+        <EntityType Name="RETAILSTORE">
+          <Key>
+            <PropertyRef Name="STOREID" />
+          </Key>
+          <Property Name="STOREID" Type="int" Nullable="false" />
+          <Property Name="STORENAME" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="CONTACTFIRSTNAME" Type="varchar" MaxLength="50" />
+          <Property Name="CONTACTLASTNAME" Type="varchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="50" />
+          <Property Name="ZIPCODE" Type="varchar" MaxLength="50" />
+          <Property Name="CITYID" Type="int" />
+        </EntityType>
+        <EntityType Name="REVISIONHISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="VERSION" Type="varchar" MaxLength="50" />
+          <Property Name="CHANGEDATE" Type="date" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="REVISIONCOMMENTS" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="SAMPLENAME">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="LASTNAME" Type="varchar" MaxLength="50" />
+          <Property Name="FIRSTNAME" Type="varchar" MaxLength="50" />
+          <Property Name="GENDER" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SAMPLESTREET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="BASEADDRESS" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="STATETAXRATE">
+          <Key>
+            <PropertyRef Name="STATE" />
+          </Key>
+          <Property Name="STATE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TAXRATE" Type="decimal" Precision="18" Scale="5" />
+        </EntityType>
+        <EntityType Name="TEMPDATEMADE">
+          <Key>
+            <PropertyRef Name="DATEVALUE" />
+          </Key>
+          <Property Name="DATEVALUE" Type="date" Nullable="false" />
+          <Property Name="MADECOUNT" Type="int" />
+        </EntityType>
+        <EntityType Name="TUBEMATERIAL">
+          <Key>
+            <PropertyRef Name="TUBEID" />
+          </Key>
+          <Property Name="TUBEID" Type="int" Nullable="false" />
+          <Property Name="MATERIAL" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
+          <Property Name="DIAMETER" Type="int" />
+          <Property Name="THICKNESS" Type="int" />
+          <Property Name="ROUNDNESS" Type="varchar" MaxLength="50" />
+          <Property Name="WEIGHT" Type="int" />
+          <Property Name="STIFFNESS" Type="int" />
+          <Property Name="LISTPRICE" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="CONSTRUCTION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WORKAREA">
+          <Key>
+            <PropertyRef Name="WORKAREA" />
+          </Key>
+          <Property Name="WORKAREA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_BIKECUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMERID" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="CUSTOMERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BIKEEMPLOYEES">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BIKELETTER">
+          <End Role="LETTERSTYLE" Type="Self.LETTERSTYLE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LETTERSTYLE">
+              <PropertyRef Name="LETTERSTYLE" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="LETTERSTYLEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BIKEMODELTYPE">
+          <End Role="MODELTYPE" Type="Self.MODELTYPE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELTYPE">
+              <PropertyRef Name="MODELTYPE" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="MODELTYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BIKEPAINT">
+          <End Role="PAINT" Type="Self.PAINT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAINT">
+              <PropertyRef Name="PAINTID" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="PAINTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BIKERETAIL">
+          <End Role="RETAILSTORE" Type="Self.RETAILSTORE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RETAILSTORE">
+              <PropertyRef Name="STOREID" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="STOREID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITYCUSTOMER">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="CITYID" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="CITYID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITYEMPLOYEE">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="CITYID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="CITYID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITYMANUFACTURER">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="0..1" />
+          <End Role="MANUFACTURER" Type="Self.MANUFACTURER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="CITYID" />
+            </Principal>
+            <Dependent Role="MANUFACTURER">
+              <PropertyRef Name="CITYID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITYRETAILSTORE">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="0..1" />
+          <End Role="RETAILSTORE" Type="Self.RETAILSTORE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="CITYID" />
+            </Principal>
+            <Dependent Role="RETAILSTORE">
+              <PropertyRef Name="CITYID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MANUFTRANS">
+          <End Role="MANUFACTURER" Type="Self.MANUFACTURER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MANUFACTURERTRANSACTION" Type="Self.MANUFACTURERTRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANUFACTURER">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Principal>
+            <Dependent Role="MANUFACTURERTRANSACTION">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODELTYPE">
+          <End Role="MODELTYPE" Type="Self.MODELTYPE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MODELSIZE" Type="Self.MODELSIZE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELTYPE">
+              <PropertyRef Name="MODELTYPE" />
+            </Principal>
+            <Dependent Role="MODELSIZE">
+              <PropertyRef Name="MODELTYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE">
+          <End Role="COMPONENTNAME" Type="Self.COMPONENTNAME" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="COMPONENT" Type="Self.COMPONENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPONENTNAME">
+              <PropertyRef Name="COMPONENTNAME" />
+            </Principal>
+            <Dependent Role="COMPONENT">
+              <PropertyRef Name="CATEGORY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE15">
+          <End Role="GROUPO" Type="Self.GROUPO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GROUPCOMPONENTS" Type="Self.GROUPCOMPONENTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPO">
+              <PropertyRef Name="COMPONENTGROUPID" />
+            </Principal>
+            <Dependent Role="GROUPCOMPONENTS">
+              <PropertyRef Name="GROUPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE16">
+          <End Role="MANUFACTURER" Type="Self.MANUFACTURER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="COMPONENT" Type="Self.COMPONENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANUFACTURER">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Principal>
+            <Dependent Role="COMPONENT">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE18">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CUSTOMERTRANSACTION" Type="Self.CUSTOMERTRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMERID" />
+            </Principal>
+            <Dependent Role="CUSTOMERTRANSACTION">
+              <PropertyRef Name="CUSTOMERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE20">
+          <End Role="PURCHASEORDER" Type="Self.PURCHASEORDER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PURCHASEITEM" Type="Self.PURCHASEITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PURCHASEORDER">
+              <PropertyRef Name="PURCHASEID" />
+            </Principal>
+            <Dependent Role="PURCHASEITEM">
+              <PropertyRef Name="PURCHASEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE21">
+          <End Role="COMPONENT" Type="Self.COMPONENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PURCHASEITEM" Type="Self.PURCHASEITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPONENT">
+              <PropertyRef Name="COMPONENTID" />
+            </Principal>
+            <Dependent Role="PURCHASEITEM">
+              <PropertyRef Name="COMPONENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE22">
+          <End Role="MANUFACTURER" Type="Self.MANUFACTURER" Multiplicity="0..1" />
+          <End Role="PURCHASEORDER" Type="Self.PURCHASEORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANUFACTURER">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Principal>
+            <Dependent Role="PURCHASEORDER">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE23">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PURCHASEORDER" Type="Self.PURCHASEORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Principal>
+            <Dependent Role="PURCHASEORDER">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE24">
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BIKEPARTS" Type="Self.BIKEPARTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BICYCLE">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Principal>
+            <Dependent Role="BIKEPARTS">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE26">
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLETUBEUSAGE" Type="Self.BICYCLETUBEUSAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BICYCLE">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Principal>
+            <Dependent Role="BICYCLETUBEUSAGE">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE27">
+          <End Role="TUBEMATERIAL" Type="Self.TUBEMATERIAL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLETUBEUSAGE" Type="Self.BICYCLETUBEUSAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUBEMATERIAL">
+              <PropertyRef Name="TUBEID" />
+            </Principal>
+            <Dependent Role="BICYCLETUBEUSAGE">
+              <PropertyRef Name="TUBEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE4">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+          <End Role="BIKEPARTS" Type="Self.BIKEPARTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Principal>
+            <Dependent Role="BIKEPARTS">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE5">
+          <End Role="COMPONENT" Type="Self.COMPONENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BIKEPARTS" Type="Self.BIKEPARTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPONENT">
+              <PropertyRef Name="COMPONENTID" />
+            </Principal>
+            <Dependent Role="BIKEPARTS">
+              <PropertyRef Name="COMPONENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE6">
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BIKETUBES" Type="Self.BIKETUBES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BICYCLE">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Principal>
+            <Dependent Role="BIKETUBES">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TUBEMATERIALBIKETUBES">
+          <End Role="TUBEMATERIAL" Type="Self.TUBEMATERIAL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BIKETUBES" Type="Self.BIKETUBES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUBEMATERIAL">
+              <PropertyRef Name="TUBEID" />
+            </Principal>
+            <Dependent Role="BIKETUBES">
+              <PropertyRef Name="TUBEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BikeShopModelStoreContainer">
+          <EntitySet Name="BICYCLE" EntityType="Self.BICYCLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BICYCLETUBEUSAGE" EntityType="Self.BICYCLETUBEUSAGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BIKEPARTS" EntityType="Self.BIKEPARTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BIKETUBES" EntityType="Self.BIKETUBES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CITY" EntityType="Self.CITY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMMONSIZES" EntityType="Self.COMMONSIZES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPONENT" EntityType="Self.COMPONENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPONENTNAME" EntityType="Self.COMPONENTNAME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMERTRANSACTION" EntityType="Self.CUSTOMERTRANSACTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GROUPCOMPONENTS" EntityType="Self.GROUPCOMPONENTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GROUPO" EntityType="Self.GROUPO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LETTERSTYLE" EntityType="Self.LETTERSTYLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginAttempts" EntityType="Self.LoginAttempts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MANUFACTURER" EntityType="Self.MANUFACTURER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MANUFACTURERTRANSACTION" EntityType="Self.MANUFACTURERTRANSACTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MODELSIZE" EntityType="Self.MODELSIZE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MODELTYPE" EntityType="Self.MODELTYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAINT" EntityType="Self.PAINT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PREFERENCE" EntityType="Self.PREFERENCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PURCHASEITEM" EntityType="Self.PURCHASEITEM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PURCHASEORDER" EntityType="Self.PURCHASEORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RETAILSTORE" EntityType="Self.RETAILSTORE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REVISIONHISTORY" EntityType="Self.REVISIONHISTORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAMPLENAME" EntityType="Self.SAMPLENAME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAMPLESTREET" EntityType="Self.SAMPLESTREET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATETAXRATE" EntityType="Self.STATETAXRATE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TEMPDATEMADE" EntityType="Self.TEMPDATEMADE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TUBEMATERIAL" EntityType="Self.TUBEMATERIAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WORKAREA" EntityType="Self.WORKAREA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BIKECUSTOMER" Association="Self.FK_BIKECUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="BICYCLE" EntitySet="BICYCLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BIKEEMPLOYEES" Association="Self.FK_BIKEEMPLOYEES">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="BICYCLE" EntitySet="BICYCLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BIKELETTER" Association="Self.FK_BIKELETTER">
+            <End Role="LETTERSTYLE" EntitySet="LETTERSTYLE" />
+            <End Role="BICYCLE" EntitySet="BICYCLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BIKEMODELTYPE" Association="Self.FK_BIKEMODELTYPE">
+            <End Role="MODELTYPE" EntitySet="MODELTYPE" />
+            <End Role="BICYCLE" EntitySet="BICYCLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BIKEPAINT" Association="Self.FK_BIKEPAINT">
+            <End Role="PAINT" EntitySet="PAINT" />
+            <End Role="BICYCLE" EntitySet="BICYCLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BIKERETAIL" Association="Self.FK_BIKERETAIL">
+            <End Role="RETAILSTORE" EntitySet="RETAILSTORE" />
+            <End Role="BICYCLE" EntitySet="BICYCLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITYCUSTOMER" Association="Self.FK_CITYCUSTOMER">
+            <End Role="CITY" EntitySet="CITY" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITYEMPLOYEE" Association="Self.FK_CITYEMPLOYEE">
+            <End Role="CITY" EntitySet="CITY" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITYMANUFACTURER" Association="Self.FK_CITYMANUFACTURER">
+            <End Role="CITY" EntitySet="CITY" />
+            <End Role="MANUFACTURER" EntitySet="MANUFACTURER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITYRETAILSTORE" Association="Self.FK_CITYRETAILSTORE">
+            <End Role="CITY" EntitySet="CITY" />
+            <End Role="RETAILSTORE" EntitySet="RETAILSTORE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MANUFTRANS" Association="Self.FK_MANUFTRANS">
+            <End Role="MANUFACTURER" EntitySet="MANUFACTURER" />
+            <End Role="MANUFACTURERTRANSACTION" EntitySet="MANUFACTURERTRANSACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODELTYPE" Association="Self.FK_MODELTYPE">
+            <End Role="MODELTYPE" EntitySet="MODELTYPE" />
+            <End Role="MODELSIZE" EntitySet="MODELSIZE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE" Association="Self.FK_REFERENCE">
+            <End Role="COMPONENTNAME" EntitySet="COMPONENTNAME" />
+            <End Role="COMPONENT" EntitySet="COMPONENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE15" Association="Self.FK_REFERENCE15">
+            <End Role="GROUPO" EntitySet="GROUPO" />
+            <End Role="GROUPCOMPONENTS" EntitySet="GROUPCOMPONENTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE16" Association="Self.FK_REFERENCE16">
+            <End Role="MANUFACTURER" EntitySet="MANUFACTURER" />
+            <End Role="COMPONENT" EntitySet="COMPONENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE18" Association="Self.FK_REFERENCE18">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="CUSTOMERTRANSACTION" EntitySet="CUSTOMERTRANSACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE20" Association="Self.FK_REFERENCE20">
+            <End Role="PURCHASEORDER" EntitySet="PURCHASEORDER" />
+            <End Role="PURCHASEITEM" EntitySet="PURCHASEITEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE21" Association="Self.FK_REFERENCE21">
+            <End Role="COMPONENT" EntitySet="COMPONENT" />
+            <End Role="PURCHASEITEM" EntitySet="PURCHASEITEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE22" Association="Self.FK_REFERENCE22">
+            <End Role="MANUFACTURER" EntitySet="MANUFACTURER" />
+            <End Role="PURCHASEORDER" EntitySet="PURCHASEORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE23" Association="Self.FK_REFERENCE23">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="PURCHASEORDER" EntitySet="PURCHASEORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE24" Association="Self.FK_REFERENCE24">
+            <End Role="BICYCLE" EntitySet="BICYCLE" />
+            <End Role="BIKEPARTS" EntitySet="BIKEPARTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE26" Association="Self.FK_REFERENCE26">
+            <End Role="BICYCLE" EntitySet="BICYCLE" />
+            <End Role="BICYCLETUBEUSAGE" EntitySet="BICYCLETUBEUSAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE27" Association="Self.FK_REFERENCE27">
+            <End Role="TUBEMATERIAL" EntitySet="TUBEMATERIAL" />
+            <End Role="BICYCLETUBEUSAGE" EntitySet="BICYCLETUBEUSAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE4" Association="Self.FK_REFERENCE4">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="BIKEPARTS" EntitySet="BIKEPARTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE5" Association="Self.FK_REFERENCE5">
+            <End Role="COMPONENT" EntitySet="COMPONENT" />
+            <End Role="BIKEPARTS" EntitySet="BIKEPARTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE6" Association="Self.FK_REFERENCE6">
+            <End Role="BICYCLE" EntitySet="BICYCLE" />
+            <End Role="BIKETUBES" EntitySet="BIKETUBES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TUBEMATERIALBIKETUBES" Association="Self.FK_TUBEMATERIALBIKETUBES">
+            <End Role="TUBEMATERIAL" EntitySet="TUBEMATERIAL" />
+            <End Role="BIKETUBES" EntitySet="BIKETUBES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BikeShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BICYCLE">
+          <Key>
+            <PropertyRef Name="SERIALNUMBER" />
+          </Key>
+          <Property Name="SERIALNUMBER" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMERID" Type="Int32" />
+          <Property Name="MODELTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAINTID" Type="Int32" />
+          <Property Name="FRAMESIZE" Type="Int32" />
+          <Property Name="ORDERDATE" Type="DateTime" Precision="0" />
+          <Property Name="STARTDATE" Type="DateTime" Precision="0" />
+          <Property Name="SHIPDATE" Type="DateTime" Precision="0" />
+          <Property Name="SHIPEMPLOYEE" Type="Int32" />
+          <Property Name="FRAMEASSEMBLER" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PAINTER" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CONSTRUCTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WATERBOTTLEBRAZEONS" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CUSTOMNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LETTERSTYLEID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STOREID" Type="Int32" />
+          <Property Name="EMPLOYEEID" Type="Int32" />
+          <Property Name="TOPTUBE" Type="Int32" />
+          <Property Name="CHAINSTAY" Type="Int32" />
+          <Property Name="HEADTUBEANGLE" Type="Int32" />
+          <Property Name="SEATTUBEANGLE" Type="Int32" />
+          <Property Name="LISTPRICE" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="SALEPRICE" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="SALESTAX" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="SALESTATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SHIPPRICE" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="FRAMEPRICE" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="COMPONENTLIST" Type="Decimal" Precision="38" Scale="4" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_BIKECUSTOMER" FromRole="BICYCLE" ToRole="CUSTOMER" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_BIKEEMPLOYEE" FromRole="BICYCLE" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="LETTERSTYLE" Relationship="Self.FK_BIKELETTER" FromRole="BICYCLE" ToRole="LETTERSTYLE" />
+          <NavigationProperty Name="MODELTYPE1" Relationship="Self.FK_BIKEMODELTYPE" FromRole="BICYCLE" ToRole="MODELTYPE" />
+          <NavigationProperty Name="PAINT" Relationship="Self.FK_BIKEPAINT" FromRole="BICYCLE" ToRole="PAINT" />
+          <NavigationProperty Name="RETAILSTORE" Relationship="Self.FK_BIKERETAIL" FromRole="BICYCLE" ToRole="RETAILSTORE" />
+          <NavigationProperty Name="BIKEPARTS" Relationship="Self.FK_REFERENCE24" FromRole="BICYCLE" ToRole="BIKEPARTS" />
+          <NavigationProperty Name="BICYCLETUBEUSAGEs" Relationship="Self.FK_REFERENCE26" FromRole="BICYCLE" ToRole="BICYCLETUBEUSAGE" />
+          <NavigationProperty Name="BIKETUBES" Relationship="Self.FK_REFERENCE6" FromRole="BICYCLE" ToRole="BIKETUBES" />
+        </EntityType>
+        <EntityType Name="BICYCLETUBEUSAGE">
+          <Key>
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="TUBEID" />
+          </Key>
+          <Property Name="SERIALNUMBER" Type="Int32" Nullable="false" />
+          <Property Name="TUBEID" Type="Int32" Nullable="false" />
+          <Property Name="QUANTITY" Type="Int32" />
+          <NavigationProperty Name="BICYCLE" Relationship="Self.FK_REFERENCE26" FromRole="BICYCLETUBEUSAGE" ToRole="BICYCLE" />
+          <NavigationProperty Name="TUBEMATERIAL" Relationship="Self.FK_REFERENCE27" FromRole="BICYCLETUBEUSAGE" ToRole="TUBEMATERIAL" />
+        </EntityType>
+        <EntityType Name="BIKEPART">
+          <Key>
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="COMPONENTID" />
+          </Key>
+          <Property Name="SERIALNUMBER" Type="Int32" Nullable="false" />
+          <Property Name="COMPONENTID" Type="Int32" Nullable="false" />
+          <Property Name="SUBSTITUTEID" Type="Int32" />
+          <Property Name="LOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QUANTITY" Type="Int32" />
+          <Property Name="DATEINSTALLED" Type="DateTime" Precision="0" />
+          <Property Name="EMPLOYEEID" Type="Int32" />
+          <NavigationProperty Name="BICYCLE" Relationship="Self.FK_REFERENCE24" FromRole="BIKEPARTS" ToRole="BICYCLE" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_REFERENCE4" FromRole="BIKEPARTS" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="COMPONENT" Relationship="Self.FK_REFERENCE5" FromRole="BIKEPARTS" ToRole="COMPONENT" />
+        </EntityType>
+        <EntityType Name="BIKETUBE">
+          <Key>
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="TUBENAME" />
+          </Key>
+          <Property Name="SERIALNUMBER" Type="Int32" Nullable="false" />
+          <Property Name="TUBENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TUBEID" Type="Int32" />
+          <Property Name="LENGTH" Type="Int32" />
+          <NavigationProperty Name="BICYCLE" Relationship="Self.FK_REFERENCE6" FromRole="BIKETUBES" ToRole="BICYCLE" />
+          <NavigationProperty Name="TUBEMATERIAL" Relationship="Self.FK_TUBEMATERIALBIKETUBES" FromRole="BIKETUBES" ToRole="TUBEMATERIAL" />
+        </EntityType>
+        <EntityType Name="CITY">
+          <Key>
+            <PropertyRef Name="CITYID" />
+          </Key>
+          <Property Name="CITYID" Type="Int32" Nullable="false" />
+          <Property Name="ZIPCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CITY1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AREACODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="POPULATION1990" Type="Int32" />
+          <Property Name="POPULATION1980" Type="Int32" />
+          <Property Name="COUNTRY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LATITUDE" Type="Int32" />
+          <Property Name="LONGITUDE" Type="Int32" />
+          <Property Name="POPULATIONCDF" Type="Int32" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.FK_CITYCUSTOMER" FromRole="CITY" ToRole="CUSTOMER" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK_CITYEMPLOYEE" FromRole="CITY" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="MANUFACTURERs" Relationship="Self.FK_CITYMANUFACTURER" FromRole="CITY" ToRole="MANUFACTURER" />
+          <NavigationProperty Name="RETAILSTOREs" Relationship="Self.FK_CITYRETAILSTORE" FromRole="CITY" ToRole="RETAILSTORE" />
+        </EntityType>
+        <EntityType Name="COMMONSIZE">
+          <Key>
+            <PropertyRef Name="MODELTYPE" />
+            <PropertyRef Name="FRAMESIZE" />
+          </Key>
+          <Property Name="MODELTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FRAMESIZE" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COMPONENT">
+          <Key>
+            <PropertyRef Name="COMPONENTID" />
+          </Key>
+          <Property Name="COMPONENTID" Type="Int32" Nullable="false" />
+          <Property Name="MANUFACTURERID" Type="Int32" />
+          <Property Name="PRODUCTNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ROAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LENGTH" Type="Int32" />
+          <Property Name="HEIGHT" Type="Int32" />
+          <Property Name="WIDTH" Type="Int32" />
+          <Property Name="WEIGHT" Type="Int32" />
+          <Property Name="YEAR" Type="Int32" />
+          <Property Name="ENDYEAR" Type="Int32" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LISTPRICE" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="ESTIMATEDCOST" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="QUANTITYONHAND" Type="Int32" />
+          <NavigationProperty Name="BIKEPARTS" Relationship="Self.FK_REFERENCE5" FromRole="COMPONENT" ToRole="BIKEPARTS" />
+          <NavigationProperty Name="COMPONENTNAME" Relationship="Self.FK_REFERENCE" FromRole="COMPONENT" ToRole="COMPONENTNAME" />
+          <NavigationProperty Name="MANUFACTURER" Relationship="Self.FK_REFERENCE16" FromRole="COMPONENT" ToRole="MANUFACTURER" />
+          <NavigationProperty Name="PURCHASEITEMs" Relationship="Self.FK_REFERENCE21" FromRole="COMPONENT" ToRole="PURCHASEITEM" />
+          <NavigationProperty Name="GROUPOes" Relationship="Self.GROUPCOMPONENTS" FromRole="COMPONENT" ToRole="GROUPO" />
+        </EntityType>
+        <EntityType Name="COMPONENTNAME">
+          <Key>
+            <PropertyRef Name="COMPONENTNAME1" />
+          </Key>
+          <Property Name="COMPONENTNAME1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSEMBLYORDER" Type="Int32" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="COMPONENTs" Relationship="Self.FK_REFERENCE" FromRole="COMPONENTNAME" ToRole="COMPONENT" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMERID" />
+          </Key>
+          <Property Name="CUSTOMERID" Type="Int32" Nullable="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FIRSTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZIPCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CITYID" Type="Int32" Nullable="false" />
+          <Property Name="BALANCEDUE" Type="Decimal" Precision="38" Scale="4" />
+          <NavigationProperty Name="BICYCLEs" Relationship="Self.FK_BIKECUSTOMER" FromRole="CUSTOMER" ToRole="BICYCLE" />
+          <NavigationProperty Name="CITY" Relationship="Self.FK_CITYCUSTOMER" FromRole="CUSTOMER" ToRole="CITY" />
+          <NavigationProperty Name="CUSTOMERTRANSACTIONs" Relationship="Self.FK_REFERENCE18" FromRole="CUSTOMER" ToRole="CUSTOMERTRANSACTION" />
+        </EntityType>
+        <EntityType Name="CUSTOMERTRANSACTION">
+          <Key>
+            <PropertyRef Name="CUSTOMERID" />
+            <PropertyRef Name="TRANSACTIONDATE" />
+          </Key>
+          <Property Name="CUSTOMERID" Type="Int32" Nullable="false" />
+          <Property Name="TRANSACTIONDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EMPLOYEEID" Type="Int32" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="REFERENCE" Type="Int32" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_REFERENCE18" FromRole="CUSTOMERTRANSACTION" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMPLOYEEID" />
+          </Key>
+          <Property Name="EMPLOYEEID" Type="Int32" Nullable="false" />
+          <Property Name="TAXPAYERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FIRSTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HOMEPHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZIPCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CITYID" Type="Int32" />
+          <Property Name="DATEHIRED" Type="DateTime" Precision="0" />
+          <Property Name="DATERELEASED" Type="DateTime" Precision="0" />
+          <Property Name="CURRENTMANAGER" Type="Int32" />
+          <Property Name="SALARYGRADE" Type="Int32" />
+          <Property Name="SALARY" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WORKAREA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BICYCLEs" Relationship="Self.FK_BIKEEMPLOYEE" FromRole="EMPLOYEE" ToRole="BICYCLE" />
+          <NavigationProperty Name="BIKEPARTS" Relationship="Self.FK_REFERENCE4" FromRole="EMPLOYEE" ToRole="BIKEPARTS" />
+          <NavigationProperty Name="CITY" Relationship="Self.FK_CITYEMPLOYEE" FromRole="EMPLOYEE" ToRole="CITY" />
+          <NavigationProperty Name="PURCHASEORDERs" Relationship="Self.FK_REFERENCE23" FromRole="EMPLOYEE" ToRole="PURCHASEORDER" />
+        </EntityType>
+        <EntityType Name="GROUPO">
+          <Key>
+            <PropertyRef Name="COMPONENTGROUPID" />
+          </Key>
+          <Property Name="COMPONENTGROUPID" Type="Int32" Nullable="false" />
+          <Property Name="GROUPNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BIKETYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YEAR" Type="Int32" />
+          <Property Name="ENDYEAR" Type="Int32" />
+          <Property Name="WEIGHT" Type="Decimal" Precision="15" Scale="4" />
+          <NavigationProperty Name="COMPONENTs" Relationship="Self.GROUPCOMPONENTS" FromRole="GROUPO" ToRole="COMPONENT" />
+        </EntityType>
+        <EntityType Name="LETTERSTYLE">
+          <Key>
+            <PropertyRef Name="LETTERSTYLE1" />
+          </Key>
+          <Property Name="LETTERSTYLE1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BICYCLEs" Relationship="Self.FK_BIKELETTER" FromRole="LETTERSTYLE" ToRole="BICYCLE" />
+        </EntityType>
+        <EntityType Name="MANUFACTURER">
+          <Key>
+            <PropertyRef Name="MANUFACTURERID" />
+          </Key>
+          <Property Name="MANUFACTURERID" Type="Int32" Nullable="false" />
+          <Property Name="MANUFACTURERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZIPCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CITYID" Type="Int32" />
+          <Property Name="BALANCEDUE" Type="Decimal" Precision="38" Scale="4" />
+          <NavigationProperty Name="CITY" Relationship="Self.FK_CITYMANUFACTURER" FromRole="MANUFACTURER" ToRole="CITY" />
+          <NavigationProperty Name="COMPONENTs" Relationship="Self.FK_REFERENCE16" FromRole="MANUFACTURER" ToRole="COMPONENT" />
+          <NavigationProperty Name="MANUFACTURERTRANSACTIONs" Relationship="Self.FK_MANUFTRANS" FromRole="MANUFACTURER" ToRole="MANUFACTURERTRANSACTION" />
+          <NavigationProperty Name="PURCHASEORDERs" Relationship="Self.FK_REFERENCE22" FromRole="MANUFACTURER" ToRole="PURCHASEORDER" />
+        </EntityType>
+        <EntityType Name="MANUFACTURERTRANSACTION">
+          <Key>
+            <PropertyRef Name="MANUFACTURERID" />
+            <PropertyRef Name="TRANSACTIONDATE" />
+            <PropertyRef Name="REFERENCE" />
+          </Key>
+          <Property Name="MANUFACTURERID" Type="Int32" Nullable="false" />
+          <Property Name="TRANSACTIONDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EMPLOYEEID" Type="Int32" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="REFERENCE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MANUFACTURER" Relationship="Self.FK_MANUFTRANS" FromRole="MANUFACTURERTRANSACTION" ToRole="MANUFACTURER" />
+        </EntityType>
+        <EntityType Name="MODELSIZE">
+          <Key>
+            <PropertyRef Name="MODELTYPE" />
+            <PropertyRef Name="MSIZE" />
+          </Key>
+          <Property Name="MODELTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MSIZE" Type="Int32" Nullable="false" />
+          <Property Name="TOPTUBE" Type="Int32" />
+          <Property Name="CHAINSTAY" Type="Int32" />
+          <Property Name="TOTALLENGTH" Type="Int32" />
+          <Property Name="GROUNDCLEARANCE" Type="Int32" />
+          <Property Name="HEADTUBEANGLE" Type="Int32" />
+          <Property Name="SEATTUBEANGLE" Type="Int32" />
+          <NavigationProperty Name="MODELTYPE1" Relationship="Self.FK_MODELTYPE" FromRole="MODELSIZE" ToRole="MODELTYPE" />
+        </EntityType>
+        <EntityType Name="MODELTYPE">
+          <Key>
+            <PropertyRef Name="MODELTYPE1" />
+          </Key>
+          <Property Name="MODELTYPE1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COMPONENTID" Type="Int32" />
+          <NavigationProperty Name="BICYCLEs" Relationship="Self.FK_BIKEMODELTYPE" FromRole="MODELTYPE" ToRole="BICYCLE" />
+          <NavigationProperty Name="MODELSIZEs" Relationship="Self.FK_MODELTYPE" FromRole="MODELTYPE" ToRole="MODELSIZE" />
+        </EntityType>
+        <EntityType Name="PAINT">
+          <Key>
+            <PropertyRef Name="PAINTID" />
+          </Key>
+          <Property Name="PAINTID" Type="Int32" Nullable="false" />
+          <Property Name="COLORNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COLORSTYLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COLORLIST" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DATEINTRODUCED" Type="DateTime" Precision="0" />
+          <Property Name="DATEDISCONTINUED" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="BICYCLEs" Relationship="Self.FK_BIKEPAINT" FromRole="PAINT" ToRole="BICYCLE" />
+        </EntityType>
+        <EntityType Name="PREFERENCE">
+          <Key>
+            <PropertyRef Name="ITEMNAME" />
+          </Key>
+          <Property Name="ITEMNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VALUE" Type="Int32" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DATECHANGED" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="PURCHASEITEM">
+          <Key>
+            <PropertyRef Name="PURCHASEID" />
+            <PropertyRef Name="COMPONENTID" />
+          </Key>
+          <Property Name="PURCHASEID" Type="Int32" Nullable="false" />
+          <Property Name="COMPONENTID" Type="Int32" Nullable="false" />
+          <Property Name="PRICEPAID" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="QUANTITY" Type="Int32" />
+          <Property Name="QUANTITYRECEIVED" Type="Int32" />
+          <NavigationProperty Name="COMPONENT" Relationship="Self.FK_REFERENCE21" FromRole="PURCHASEITEM" ToRole="COMPONENT" />
+          <NavigationProperty Name="PURCHASEORDER" Relationship="Self.FK_REFERENCE20" FromRole="PURCHASEITEM" ToRole="PURCHASEORDER" />
+        </EntityType>
+        <EntityType Name="PURCHASEORDER">
+          <Key>
+            <PropertyRef Name="PURCHASEID" />
+          </Key>
+          <Property Name="PURCHASEID" Type="Int32" Nullable="false" />
+          <Property Name="EMPLOYEEID" Type="Int32" />
+          <Property Name="MANUFACTURERID" Type="Int32" />
+          <Property Name="TOTALLIST" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="SHIPPINGCOST" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="DISCOUNT" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="ORDERDATE" Type="DateTime" Precision="0" />
+          <Property Name="RECEIVEDATE" Type="DateTime" Precision="0" />
+          <Property Name="AMOUNTDUE" Type="Decimal" Precision="38" Scale="4" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_REFERENCE23" FromRole="PURCHASEORDER" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="MANUFACTURER" Relationship="Self.FK_REFERENCE22" FromRole="PURCHASEORDER" ToRole="MANUFACTURER" />
+          <NavigationProperty Name="PURCHASEITEMs" Relationship="Self.FK_REFERENCE20" FromRole="PURCHASEORDER" ToRole="PURCHASEITEM" />
+        </EntityType>
+        <EntityType Name="RETAILSTORE">
+          <Key>
+            <PropertyRef Name="STOREID" />
+          </Key>
+          <Property Name="STOREID" Type="Int32" Nullable="false" />
+          <Property Name="STORENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACTFIRSTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACTLASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZIPCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CITYID" Type="Int32" />
+          <NavigationProperty Name="BICYCLEs" Relationship="Self.FK_BIKERETAIL" FromRole="RETAILSTORE" ToRole="BICYCLE" />
+          <NavigationProperty Name="CITY" Relationship="Self.FK_CITYRETAILSTORE" FromRole="RETAILSTORE" ToRole="CITY" />
+        </EntityType>
+        <EntityType Name="REVISIONHISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="VERSION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CHANGEDATE" Type="DateTime" Precision="0" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REVISIONCOMMENTS" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SAMPLENAME">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="LASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FIRSTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GENDER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SAMPLESTREET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="BASEADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="STATETAXRATE">
+          <Key>
+            <PropertyRef Name="STATE" />
+          </Key>
+          <Property Name="STATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TAXRATE" Type="Decimal" Precision="18" Scale="5" />
+        </EntityType>
+        <EntityType Name="TEMPDATEMADE">
+          <Key>
+            <PropertyRef Name="DATEVALUE" />
+          </Key>
+          <Property Name="DATEVALUE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MADECOUNT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TUBEMATERIAL">
+          <Key>
+            <PropertyRef Name="TUBEID" />
+          </Key>
+          <Property Name="TUBEID" Type="Int32" Nullable="false" />
+          <Property Name="MATERIAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DIAMETER" Type="Int32" />
+          <Property Name="THICKNESS" Type="Int32" />
+          <Property Name="ROUNDNESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WEIGHT" Type="Int32" />
+          <Property Name="STIFFNESS" Type="Int32" />
+          <Property Name="LISTPRICE" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="CONSTRUCTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BICYCLETUBEUSAGEs" Relationship="Self.FK_REFERENCE27" FromRole="TUBEMATERIAL" ToRole="BICYCLETUBEUSAGE" />
+          <NavigationProperty Name="BIKETUBES" Relationship="Self.FK_TUBEMATERIALBIKETUBES" FromRole="TUBEMATERIAL" ToRole="BIKETUBES" />
+        </EntityType>
+        <EntityType Name="WORKAREA">
+          <Key>
+            <PropertyRef Name="WORKAREA1" />
+          </Key>
+          <Property Name="WORKAREA1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_BIKECUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMERID" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="CUSTOMERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BIKEEMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BIKELETTER">
+          <End Role="LETTERSTYLE" Type="Self.LETTERSTYLE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LETTERSTYLE">
+              <PropertyRef Name="LETTERSTYLE1" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="LETTERSTYLEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BIKEMODELTYPE">
+          <End Role="MODELTYPE" Type="Self.MODELTYPE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELTYPE">
+              <PropertyRef Name="MODELTYPE1" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="MODELTYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BIKEPAINT">
+          <End Role="PAINT" Type="Self.PAINT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAINT">
+              <PropertyRef Name="PAINTID" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="PAINTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BIKERETAIL">
+          <End Role="RETAILSTORE" Type="Self.RETAILSTORE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RETAILSTORE">
+              <PropertyRef Name="STOREID" />
+            </Principal>
+            <Dependent Role="BICYCLE">
+              <PropertyRef Name="STOREID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE24">
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BIKEPARTS" Type="Self.BIKEPART" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BICYCLE">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Principal>
+            <Dependent Role="BIKEPARTS">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE26">
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLETUBEUSAGE" Type="Self.BICYCLETUBEUSAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BICYCLE">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Principal>
+            <Dependent Role="BICYCLETUBEUSAGE">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE6">
+          <End Role="BICYCLE" Type="Self.BICYCLE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BIKETUBES" Type="Self.BIKETUBE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BICYCLE">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Principal>
+            <Dependent Role="BIKETUBES">
+              <PropertyRef Name="SERIALNUMBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE27">
+          <End Role="TUBEMATERIAL" Type="Self.TUBEMATERIAL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BICYCLETUBEUSAGE" Type="Self.BICYCLETUBEUSAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUBEMATERIAL">
+              <PropertyRef Name="TUBEID" />
+            </Principal>
+            <Dependent Role="BICYCLETUBEUSAGE">
+              <PropertyRef Name="TUBEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE4">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+          <End Role="BIKEPARTS" Type="Self.BIKEPART" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Principal>
+            <Dependent Role="BIKEPARTS">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE5">
+          <End Role="COMPONENT" Type="Self.COMPONENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BIKEPARTS" Type="Self.BIKEPART" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPONENT">
+              <PropertyRef Name="COMPONENTID" />
+            </Principal>
+            <Dependent Role="BIKEPARTS">
+              <PropertyRef Name="COMPONENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TUBEMATERIALBIKETUBES">
+          <End Role="TUBEMATERIAL" Type="Self.TUBEMATERIAL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BIKETUBES" Type="Self.BIKETUBE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUBEMATERIAL">
+              <PropertyRef Name="TUBEID" />
+            </Principal>
+            <Dependent Role="BIKETUBES">
+              <PropertyRef Name="TUBEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITYCUSTOMER">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="CITYID" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="CITYID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITYEMPLOYEE">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="CITYID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="CITYID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITYMANUFACTURER">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="0..1" />
+          <End Role="MANUFACTURER" Type="Self.MANUFACTURER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="CITYID" />
+            </Principal>
+            <Dependent Role="MANUFACTURER">
+              <PropertyRef Name="CITYID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITYRETAILSTORE">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="0..1" />
+          <End Role="RETAILSTORE" Type="Self.RETAILSTORE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="CITYID" />
+            </Principal>
+            <Dependent Role="RETAILSTORE">
+              <PropertyRef Name="CITYID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE">
+          <End Role="COMPONENTNAME" Type="Self.COMPONENTNAME" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="COMPONENT" Type="Self.COMPONENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPONENTNAME">
+              <PropertyRef Name="COMPONENTNAME1" />
+            </Principal>
+            <Dependent Role="COMPONENT">
+              <PropertyRef Name="CATEGORY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE16">
+          <End Role="MANUFACTURER" Type="Self.MANUFACTURER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="COMPONENT" Type="Self.COMPONENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANUFACTURER">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Principal>
+            <Dependent Role="COMPONENT">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE21">
+          <End Role="COMPONENT" Type="Self.COMPONENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PURCHASEITEM" Type="Self.PURCHASEITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPONENT">
+              <PropertyRef Name="COMPONENTID" />
+            </Principal>
+            <Dependent Role="PURCHASEITEM">
+              <PropertyRef Name="COMPONENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE18">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CUSTOMERTRANSACTION" Type="Self.CUSTOMERTRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMERID" />
+            </Principal>
+            <Dependent Role="CUSTOMERTRANSACTION">
+              <PropertyRef Name="CUSTOMERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE23">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PURCHASEORDER" Type="Self.PURCHASEORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Principal>
+            <Dependent Role="PURCHASEORDER">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MANUFTRANS">
+          <End Role="MANUFACTURER" Type="Self.MANUFACTURER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MANUFACTURERTRANSACTION" Type="Self.MANUFACTURERTRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANUFACTURER">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Principal>
+            <Dependent Role="MANUFACTURERTRANSACTION">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE22">
+          <End Role="MANUFACTURER" Type="Self.MANUFACTURER" Multiplicity="0..1" />
+          <End Role="PURCHASEORDER" Type="Self.PURCHASEORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANUFACTURER">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Principal>
+            <Dependent Role="PURCHASEORDER">
+              <PropertyRef Name="MANUFACTURERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODELTYPE">
+          <End Role="MODELTYPE" Type="Self.MODELTYPE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MODELSIZE" Type="Self.MODELSIZE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELTYPE">
+              <PropertyRef Name="MODELTYPE1" />
+            </Principal>
+            <Dependent Role="MODELSIZE">
+              <PropertyRef Name="MODELTYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFERENCE20">
+          <End Role="PURCHASEORDER" Type="Self.PURCHASEORDER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PURCHASEITEM" Type="Self.PURCHASEITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PURCHASEORDER">
+              <PropertyRef Name="PURCHASEID" />
+            </Principal>
+            <Dependent Role="PURCHASEITEM">
+              <PropertyRef Name="PURCHASEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GROUPCOMPONENTS">
+          <End Role="COMPONENT" Type="Self.COMPONENT" Multiplicity="*" />
+          <End Role="GROUPO" Type="Self.GROUPO" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="BikeShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BICYCLEs" EntityType="Self.BICYCLE" />
+          <EntitySet Name="BICYCLETUBEUSAGEs" EntityType="Self.BICYCLETUBEUSAGE" />
+          <EntitySet Name="BIKEPARTS" EntityType="Self.BIKEPART" />
+          <EntitySet Name="BIKETUBES" EntityType="Self.BIKETUBE" />
+          <EntitySet Name="CITies" EntityType="Self.CITY" />
+          <EntitySet Name="COMMONSIZES" EntityType="Self.COMMONSIZE" />
+          <EntitySet Name="COMPONENTs" EntityType="Self.COMPONENT" />
+          <EntitySet Name="COMPONENTNAMEs" EntityType="Self.COMPONENTNAME" />
+          <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="CUSTOMERTRANSACTIONs" EntityType="Self.CUSTOMERTRANSACTION" />
+          <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+          <EntitySet Name="GROUPOes" EntityType="Self.GROUPO" />
+          <EntitySet Name="LETTERSTYLEs" EntityType="Self.LETTERSTYLE" />
+          <EntitySet Name="MANUFACTURERs" EntityType="Self.MANUFACTURER" />
+          <EntitySet Name="MANUFACTURERTRANSACTIONs" EntityType="Self.MANUFACTURERTRANSACTION" />
+          <EntitySet Name="MODELSIZEs" EntityType="Self.MODELSIZE" />
+          <EntitySet Name="MODELTYPEs" EntityType="Self.MODELTYPE" />
+          <EntitySet Name="PAINTs" EntityType="Self.PAINT" />
+          <EntitySet Name="PREFERENCEs" EntityType="Self.PREFERENCE" />
+          <EntitySet Name="PURCHASEITEMs" EntityType="Self.PURCHASEITEM" />
+          <EntitySet Name="PURCHASEORDERs" EntityType="Self.PURCHASEORDER" />
+          <EntitySet Name="RETAILSTOREs" EntityType="Self.RETAILSTORE" />
+          <EntitySet Name="REVISIONHISTORies" EntityType="Self.REVISIONHISTORY" />
+          <EntitySet Name="SAMPLENAMEs" EntityType="Self.SAMPLENAME" />
+          <EntitySet Name="SAMPLESTREETs" EntityType="Self.SAMPLESTREET" />
+          <EntitySet Name="STATETAXRATEs" EntityType="Self.STATETAXRATE" />
+          <EntitySet Name="TEMPDATEMADEs" EntityType="Self.TEMPDATEMADE" />
+          <EntitySet Name="TUBEMATERIALs" EntityType="Self.TUBEMATERIAL" />
+          <EntitySet Name="WORKAREAs" EntityType="Self.WORKAREA" />
+          <AssociationSet Name="FK_BIKECUSTOMER" Association="Self.FK_BIKECUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="BICYCLE" EntitySet="BICYCLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BIKEEMPLOYEE" Association="Self.FK_BIKEEMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="BICYCLE" EntitySet="BICYCLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BIKELETTER" Association="Self.FK_BIKELETTER">
+            <End Role="LETTERSTYLE" EntitySet="LETTERSTYLEs" />
+            <End Role="BICYCLE" EntitySet="BICYCLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BIKEMODELTYPE" Association="Self.FK_BIKEMODELTYPE">
+            <End Role="MODELTYPE" EntitySet="MODELTYPEs" />
+            <End Role="BICYCLE" EntitySet="BICYCLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BIKEPAINT" Association="Self.FK_BIKEPAINT">
+            <End Role="PAINT" EntitySet="PAINTs" />
+            <End Role="BICYCLE" EntitySet="BICYCLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BIKERETAIL" Association="Self.FK_BIKERETAIL">
+            <End Role="RETAILSTORE" EntitySet="RETAILSTOREs" />
+            <End Role="BICYCLE" EntitySet="BICYCLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE24" Association="Self.FK_REFERENCE24">
+            <End Role="BICYCLE" EntitySet="BICYCLEs" />
+            <End Role="BIKEPARTS" EntitySet="BIKEPARTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE26" Association="Self.FK_REFERENCE26">
+            <End Role="BICYCLE" EntitySet="BICYCLEs" />
+            <End Role="BICYCLETUBEUSAGE" EntitySet="BICYCLETUBEUSAGEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE6" Association="Self.FK_REFERENCE6">
+            <End Role="BICYCLE" EntitySet="BICYCLEs" />
+            <End Role="BIKETUBES" EntitySet="BIKETUBES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE27" Association="Self.FK_REFERENCE27">
+            <End Role="TUBEMATERIAL" EntitySet="TUBEMATERIALs" />
+            <End Role="BICYCLETUBEUSAGE" EntitySet="BICYCLETUBEUSAGEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE4" Association="Self.FK_REFERENCE4">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="BIKEPARTS" EntitySet="BIKEPARTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE5" Association="Self.FK_REFERENCE5">
+            <End Role="COMPONENT" EntitySet="COMPONENTs" />
+            <End Role="BIKEPARTS" EntitySet="BIKEPARTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TUBEMATERIALBIKETUBES" Association="Self.FK_TUBEMATERIALBIKETUBES">
+            <End Role="TUBEMATERIAL" EntitySet="TUBEMATERIALs" />
+            <End Role="BIKETUBES" EntitySet="BIKETUBES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITYCUSTOMER" Association="Self.FK_CITYCUSTOMER">
+            <End Role="CITY" EntitySet="CITies" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITYEMPLOYEE" Association="Self.FK_CITYEMPLOYEE">
+            <End Role="CITY" EntitySet="CITies" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITYMANUFACTURER" Association="Self.FK_CITYMANUFACTURER">
+            <End Role="CITY" EntitySet="CITies" />
+            <End Role="MANUFACTURER" EntitySet="MANUFACTURERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITYRETAILSTORE" Association="Self.FK_CITYRETAILSTORE">
+            <End Role="CITY" EntitySet="CITies" />
+            <End Role="RETAILSTORE" EntitySet="RETAILSTOREs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE" Association="Self.FK_REFERENCE">
+            <End Role="COMPONENTNAME" EntitySet="COMPONENTNAMEs" />
+            <End Role="COMPONENT" EntitySet="COMPONENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE16" Association="Self.FK_REFERENCE16">
+            <End Role="MANUFACTURER" EntitySet="MANUFACTURERs" />
+            <End Role="COMPONENT" EntitySet="COMPONENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE21" Association="Self.FK_REFERENCE21">
+            <End Role="COMPONENT" EntitySet="COMPONENTs" />
+            <End Role="PURCHASEITEM" EntitySet="PURCHASEITEMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE18" Association="Self.FK_REFERENCE18">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="CUSTOMERTRANSACTION" EntitySet="CUSTOMERTRANSACTIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE23" Association="Self.FK_REFERENCE23">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="PURCHASEORDER" EntitySet="PURCHASEORDERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MANUFTRANS" Association="Self.FK_MANUFTRANS">
+            <End Role="MANUFACTURER" EntitySet="MANUFACTURERs" />
+            <End Role="MANUFACTURERTRANSACTION" EntitySet="MANUFACTURERTRANSACTIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE22" Association="Self.FK_REFERENCE22">
+            <End Role="MANUFACTURER" EntitySet="MANUFACTURERs" />
+            <End Role="PURCHASEORDER" EntitySet="PURCHASEORDERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODELTYPE" Association="Self.FK_MODELTYPE">
+            <End Role="MODELTYPE" EntitySet="MODELTYPEs" />
+            <End Role="MODELSIZE" EntitySet="MODELSIZEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFERENCE20" Association="Self.FK_REFERENCE20">
+            <End Role="PURCHASEORDER" EntitySet="PURCHASEORDERs" />
+            <End Role="PURCHASEITEM" EntitySet="PURCHASEITEMs" />
+          </AssociationSet>
+          <AssociationSet Name="GROUPCOMPONENTS" Association="Self.GROUPCOMPONENTS">
+            <End Role="COMPONENT" EntitySet="COMPONENTs" />
+            <End Role="GROUPO" EntitySet="GROUPOes" />
+          </AssociationSet>
+          <EntitySet Name="LoginAttempts" EntityType="BikeShopModel.LoginAttempt" />
+        </EntityContainer>
+        <EntityType Name="LoginAttempt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Successful" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BikeShopModelStoreContainer" CdmEntityContainer="BikeShopEntities">
+          <EntitySetMapping Name="BICYCLEs">
+            <EntityTypeMapping TypeName="BikeShopModel.BICYCLE">
+              <MappingFragment StoreEntitySet="BICYCLE">
+                <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+                <ScalarProperty Name="CUSTOMERID" ColumnName="CUSTOMERID" />
+                <ScalarProperty Name="MODELTYPE" ColumnName="MODELTYPE" />
+                <ScalarProperty Name="PAINTID" ColumnName="PAINTID" />
+                <ScalarProperty Name="FRAMESIZE" ColumnName="FRAMESIZE" />
+                <ScalarProperty Name="ORDERDATE" ColumnName="ORDERDATE" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="SHIPDATE" ColumnName="SHIPDATE" />
+                <ScalarProperty Name="SHIPEMPLOYEE" ColumnName="SHIPEMPLOYEE" />
+                <ScalarProperty Name="FRAMEASSEMBLER" ColumnName="FRAMEASSEMBLER" />
+                <ScalarProperty Name="PAINTER" ColumnName="PAINTER" />
+                <ScalarProperty Name="CONSTRUCTION" ColumnName="CONSTRUCTION" />
+                <ScalarProperty Name="WATERBOTTLEBRAZEONS" ColumnName="WATERBOTTLEBRAZEONS" />
+                <ScalarProperty Name="CUSTOMNAME" ColumnName="CUSTOMNAME" />
+                <ScalarProperty Name="LETTERSTYLEID" ColumnName="LETTERSTYLEID" />
+                <ScalarProperty Name="STOREID" ColumnName="STOREID" />
+                <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+                <ScalarProperty Name="TOPTUBE" ColumnName="TOPTUBE" />
+                <ScalarProperty Name="CHAINSTAY" ColumnName="CHAINSTAY" />
+                <ScalarProperty Name="HEADTUBEANGLE" ColumnName="HEADTUBEANGLE" />
+                <ScalarProperty Name="SEATTUBEANGLE" ColumnName="SEATTUBEANGLE" />
+                <ScalarProperty Name="LISTPRICE" ColumnName="LISTPRICE" />
+                <ScalarProperty Name="SALEPRICE" ColumnName="SALEPRICE" />
+                <ScalarProperty Name="SALESTAX" ColumnName="SALESTAX" />
+                <ScalarProperty Name="SALESTATE" ColumnName="SALESTATE" />
+                <ScalarProperty Name="SHIPPRICE" ColumnName="SHIPPRICE" />
+                <ScalarProperty Name="FRAMEPRICE" ColumnName="FRAMEPRICE" />
+                <ScalarProperty Name="COMPONENTLIST" ColumnName="COMPONENTLIST" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BICYCLETUBEUSAGEs">
+            <EntityTypeMapping TypeName="BikeShopModel.BICYCLETUBEUSAGE">
+              <MappingFragment StoreEntitySet="BICYCLETUBEUSAGE">
+                <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+                <ScalarProperty Name="TUBEID" ColumnName="TUBEID" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIKEPARTS">
+            <EntityTypeMapping TypeName="BikeShopModel.BIKEPART">
+              <MappingFragment StoreEntitySet="BIKEPARTS">
+                <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+                <ScalarProperty Name="COMPONENTID" ColumnName="COMPONENTID" />
+                <ScalarProperty Name="SUBSTITUTEID" ColumnName="SUBSTITUTEID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="DATEINSTALLED" ColumnName="DATEINSTALLED" />
+                <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIKETUBES">
+            <EntityTypeMapping TypeName="BikeShopModel.BIKETUBE">
+              <MappingFragment StoreEntitySet="BIKETUBES">
+                <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+                <ScalarProperty Name="TUBENAME" ColumnName="TUBENAME" />
+                <ScalarProperty Name="TUBEID" ColumnName="TUBEID" />
+                <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CITies">
+            <EntityTypeMapping TypeName="BikeShopModel.CITY">
+              <MappingFragment StoreEntitySet="CITY">
+                <ScalarProperty Name="CITYID" ColumnName="CITYID" />
+                <ScalarProperty Name="ZIPCODE" ColumnName="ZIPCODE" />
+                <ScalarProperty Name="CITY1" ColumnName="CITY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="AREACODE" ColumnName="AREACODE" />
+                <ScalarProperty Name="POPULATION1990" ColumnName="POPULATION1990" />
+                <ScalarProperty Name="POPULATION1980" ColumnName="POPULATION1980" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="POPULATIONCDF" ColumnName="POPULATIONCDF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMMONSIZES">
+            <EntityTypeMapping TypeName="BikeShopModel.COMMONSIZE">
+              <MappingFragment StoreEntitySet="COMMONSIZES">
+                <ScalarProperty Name="MODELTYPE" ColumnName="MODELTYPE" />
+                <ScalarProperty Name="FRAMESIZE" ColumnName="FRAMESIZE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPONENTs">
+            <EntityTypeMapping TypeName="BikeShopModel.COMPONENT">
+              <MappingFragment StoreEntitySet="COMPONENT">
+                <ScalarProperty Name="COMPONENTID" ColumnName="COMPONENTID" />
+                <ScalarProperty Name="MANUFACTURERID" ColumnName="MANUFACTURERID" />
+                <ScalarProperty Name="PRODUCTNUMBER" ColumnName="PRODUCTNUMBER" />
+                <ScalarProperty Name="ROAD" ColumnName="ROAD" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+                <ScalarProperty Name="HEIGHT" ColumnName="HEIGHT" />
+                <ScalarProperty Name="WIDTH" ColumnName="WIDTH" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="YEAR" ColumnName="YEAR" />
+                <ScalarProperty Name="ENDYEAR" ColumnName="ENDYEAR" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="LISTPRICE" ColumnName="LISTPRICE" />
+                <ScalarProperty Name="ESTIMATEDCOST" ColumnName="ESTIMATEDCOST" />
+                <ScalarProperty Name="QUANTITYONHAND" ColumnName="QUANTITYONHAND" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPONENTNAMEs">
+            <EntityTypeMapping TypeName="BikeShopModel.COMPONENTNAME">
+              <MappingFragment StoreEntitySet="COMPONENTNAME">
+                <ScalarProperty Name="COMPONENTNAME1" ColumnName="COMPONENTNAME" />
+                <ScalarProperty Name="ASSEMBLYORDER" ColumnName="ASSEMBLYORDER" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="BikeShopModel.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="CUSTOMERID" ColumnName="CUSTOMERID" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="ZIPCODE" ColumnName="ZIPCODE" />
+                <ScalarProperty Name="CITYID" ColumnName="CITYID" />
+                <ScalarProperty Name="BALANCEDUE" ColumnName="BALANCEDUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERTRANSACTIONs">
+            <EntityTypeMapping TypeName="BikeShopModel.CUSTOMERTRANSACTION">
+              <MappingFragment StoreEntitySet="CUSTOMERTRANSACTION">
+                <ScalarProperty Name="CUSTOMERID" ColumnName="CUSTOMERID" />
+                <ScalarProperty Name="TRANSACTIONDATE" ColumnName="TRANSACTIONDATE" />
+                <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="REFERENCE" ColumnName="REFERENCE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEEs">
+            <EntityTypeMapping TypeName="BikeShopModel.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+                <ScalarProperty Name="TAXPAYERID" ColumnName="TAXPAYERID" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="HOMEPHONE" ColumnName="HOMEPHONE" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="ZIPCODE" ColumnName="ZIPCODE" />
+                <ScalarProperty Name="CITYID" ColumnName="CITYID" />
+                <ScalarProperty Name="DATEHIRED" ColumnName="DATEHIRED" />
+                <ScalarProperty Name="DATERELEASED" ColumnName="DATERELEASED" />
+                <ScalarProperty Name="CURRENTMANAGER" ColumnName="CURRENTMANAGER" />
+                <ScalarProperty Name="SALARYGRADE" ColumnName="SALARYGRADE" />
+                <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="WORKAREA" ColumnName="WORKAREA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUPOes">
+            <EntityTypeMapping TypeName="BikeShopModel.GROUPO">
+              <MappingFragment StoreEntitySet="GROUPO">
+                <ScalarProperty Name="COMPONENTGROUPID" ColumnName="COMPONENTGROUPID" />
+                <ScalarProperty Name="GROUPNAME" ColumnName="GROUPNAME" />
+                <ScalarProperty Name="BIKETYPE" ColumnName="BIKETYPE" />
+                <ScalarProperty Name="YEAR" ColumnName="YEAR" />
+                <ScalarProperty Name="ENDYEAR" ColumnName="ENDYEAR" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LETTERSTYLEs">
+            <EntityTypeMapping TypeName="BikeShopModel.LETTERSTYLE">
+              <MappingFragment StoreEntitySet="LETTERSTYLE">
+                <ScalarProperty Name="LETTERSTYLE1" ColumnName="LETTERSTYLE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MANUFACTURERs">
+            <EntityTypeMapping TypeName="BikeShopModel.MANUFACTURER">
+              <MappingFragment StoreEntitySet="MANUFACTURER">
+                <ScalarProperty Name="MANUFACTURERID" ColumnName="MANUFACTURERID" />
+                <ScalarProperty Name="MANUFACTURERNAME" ColumnName="MANUFACTURERNAME" />
+                <ScalarProperty Name="CONTACTNAME" ColumnName="CONTACTNAME" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="ZIPCODE" ColumnName="ZIPCODE" />
+                <ScalarProperty Name="CITYID" ColumnName="CITYID" />
+                <ScalarProperty Name="BALANCEDUE" ColumnName="BALANCEDUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MANUFACTURERTRANSACTIONs">
+            <EntityTypeMapping TypeName="BikeShopModel.MANUFACTURERTRANSACTION">
+              <MappingFragment StoreEntitySet="MANUFACTURERTRANSACTION">
+                <ScalarProperty Name="MANUFACTURERID" ColumnName="MANUFACTURERID" />
+                <ScalarProperty Name="TRANSACTIONDATE" ColumnName="TRANSACTIONDATE" />
+                <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="REFERENCE" ColumnName="REFERENCE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODELSIZEs">
+            <EntityTypeMapping TypeName="BikeShopModel.MODELSIZE">
+              <MappingFragment StoreEntitySet="MODELSIZE">
+                <ScalarProperty Name="MODELTYPE" ColumnName="MODELTYPE" />
+                <ScalarProperty Name="MSIZE" ColumnName="MSIZE" />
+                <ScalarProperty Name="TOPTUBE" ColumnName="TOPTUBE" />
+                <ScalarProperty Name="CHAINSTAY" ColumnName="CHAINSTAY" />
+                <ScalarProperty Name="TOTALLENGTH" ColumnName="TOTALLENGTH" />
+                <ScalarProperty Name="GROUNDCLEARANCE" ColumnName="GROUNDCLEARANCE" />
+                <ScalarProperty Name="HEADTUBEANGLE" ColumnName="HEADTUBEANGLE" />
+                <ScalarProperty Name="SEATTUBEANGLE" ColumnName="SEATTUBEANGLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODELTYPEs">
+            <EntityTypeMapping TypeName="BikeShopModel.MODELTYPE">
+              <MappingFragment StoreEntitySet="MODELTYPE">
+                <ScalarProperty Name="MODELTYPE1" ColumnName="MODELTYPE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="COMPONENTID" ColumnName="COMPONENTID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAINTs">
+            <EntityTypeMapping TypeName="BikeShopModel.PAINT">
+              <MappingFragment StoreEntitySet="PAINT">
+                <ScalarProperty Name="PAINTID" ColumnName="PAINTID" />
+                <ScalarProperty Name="COLORNAME" ColumnName="COLORNAME" />
+                <ScalarProperty Name="COLORSTYLE" ColumnName="COLORSTYLE" />
+                <ScalarProperty Name="COLORLIST" ColumnName="COLORLIST" />
+                <ScalarProperty Name="DATEINTRODUCED" ColumnName="DATEINTRODUCED" />
+                <ScalarProperty Name="DATEDISCONTINUED" ColumnName="DATEDISCONTINUED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PREFERENCEs">
+            <EntityTypeMapping TypeName="BikeShopModel.PREFERENCE">
+              <MappingFragment StoreEntitySet="PREFERENCE">
+                <ScalarProperty Name="ITEMNAME" ColumnName="ITEMNAME" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="DATECHANGED" ColumnName="DATECHANGED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PURCHASEITEMs">
+            <EntityTypeMapping TypeName="BikeShopModel.PURCHASEITEM">
+              <MappingFragment StoreEntitySet="PURCHASEITEM">
+                <ScalarProperty Name="PURCHASEID" ColumnName="PURCHASEID" />
+                <ScalarProperty Name="COMPONENTID" ColumnName="COMPONENTID" />
+                <ScalarProperty Name="PRICEPAID" ColumnName="PRICEPAID" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="QUANTITYRECEIVED" ColumnName="QUANTITYRECEIVED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PURCHASEORDERs">
+            <EntityTypeMapping TypeName="BikeShopModel.PURCHASEORDER">
+              <MappingFragment StoreEntitySet="PURCHASEORDER">
+                <ScalarProperty Name="PURCHASEID" ColumnName="PURCHASEID" />
+                <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+                <ScalarProperty Name="MANUFACTURERID" ColumnName="MANUFACTURERID" />
+                <ScalarProperty Name="TOTALLIST" ColumnName="TOTALLIST" />
+                <ScalarProperty Name="SHIPPINGCOST" ColumnName="SHIPPINGCOST" />
+                <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+                <ScalarProperty Name="ORDERDATE" ColumnName="ORDERDATE" />
+                <ScalarProperty Name="RECEIVEDATE" ColumnName="RECEIVEDATE" />
+                <ScalarProperty Name="AMOUNTDUE" ColumnName="AMOUNTDUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RETAILSTOREs">
+            <EntityTypeMapping TypeName="BikeShopModel.RETAILSTORE">
+              <MappingFragment StoreEntitySet="RETAILSTORE">
+                <ScalarProperty Name="STOREID" ColumnName="STOREID" />
+                <ScalarProperty Name="STORENAME" ColumnName="STORENAME" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="CONTACTFIRSTNAME" ColumnName="CONTACTFIRSTNAME" />
+                <ScalarProperty Name="CONTACTLASTNAME" ColumnName="CONTACTLASTNAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="ZIPCODE" ColumnName="ZIPCODE" />
+                <ScalarProperty Name="CITYID" ColumnName="CITYID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REVISIONHISTORies">
+            <EntityTypeMapping TypeName="BikeShopModel.REVISIONHISTORY">
+              <MappingFragment StoreEntitySet="REVISIONHISTORY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+                <ScalarProperty Name="CHANGEDATE" ColumnName="CHANGEDATE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="REVISIONCOMMENTS" ColumnName="REVISIONCOMMENTS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAMPLENAMEs">
+            <EntityTypeMapping TypeName="BikeShopModel.SAMPLENAME">
+              <MappingFragment StoreEntitySet="SAMPLENAME">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAMPLESTREETs">
+            <EntityTypeMapping TypeName="BikeShopModel.SAMPLESTREET">
+              <MappingFragment StoreEntitySet="SAMPLESTREET">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BASEADDRESS" ColumnName="BASEADDRESS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATETAXRATEs">
+            <EntityTypeMapping TypeName="BikeShopModel.STATETAXRATE">
+              <MappingFragment StoreEntitySet="STATETAXRATE">
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="TAXRATE" ColumnName="TAXRATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEMPDATEMADEs">
+            <EntityTypeMapping TypeName="BikeShopModel.TEMPDATEMADE">
+              <MappingFragment StoreEntitySet="TEMPDATEMADE">
+                <ScalarProperty Name="DATEVALUE" ColumnName="DATEVALUE" />
+                <ScalarProperty Name="MADECOUNT" ColumnName="MADECOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TUBEMATERIALs">
+            <EntityTypeMapping TypeName="BikeShopModel.TUBEMATERIAL">
+              <MappingFragment StoreEntitySet="TUBEMATERIAL">
+                <ScalarProperty Name="TUBEID" ColumnName="TUBEID" />
+                <ScalarProperty Name="MATERIAL" ColumnName="MATERIAL" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="DIAMETER" ColumnName="DIAMETER" />
+                <ScalarProperty Name="THICKNESS" ColumnName="THICKNESS" />
+                <ScalarProperty Name="ROUNDNESS" ColumnName="ROUNDNESS" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="STIFFNESS" ColumnName="STIFFNESS" />
+                <ScalarProperty Name="LISTPRICE" ColumnName="LISTPRICE" />
+                <ScalarProperty Name="CONSTRUCTION" ColumnName="CONSTRUCTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WORKAREAs">
+            <EntityTypeMapping TypeName="BikeShopModel.WORKAREA">
+              <MappingFragment StoreEntitySet="WORKAREA">
+                <ScalarProperty Name="WORKAREA1" ColumnName="WORKAREA" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="GROUPCOMPONENTS" TypeName="BikeShopModel.GROUPCOMPONENTS" StoreEntitySet="GROUPCOMPONENTS">
+            <EndProperty Name="COMPONENT">
+              <ScalarProperty Name="COMPONENTID" ColumnName="COMPONENTID" />
+            </EndProperty>
+            <EndProperty Name="GROUPO">
+              <ScalarProperty Name="COMPONENTGROUPID" ColumnName="GROUPID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="LoginAttempts">
+            <EntityTypeMapping TypeName="BikeShopModel.LoginAttempt">
+              <MappingFragment StoreEntitySet="LoginAttempts">
+                <ScalarProperty Name="Successful" ColumnName="Successful" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

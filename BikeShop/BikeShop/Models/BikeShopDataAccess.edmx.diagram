@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f9a1f9e62d7f454086702b92c9979f87" Name="Diagram1" ZoomLevel="114">
+        <EntityTypeShape EntityType="BikeShopModel.BICYCLE" Width="1.5" PointX="8.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.BICYCLETUBEUSAGE" Width="1.5" PointX="10.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.BIKEPART" Width="1.5" PointX="10.5" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.BIKETUBE" Width="1.5" PointX="10.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.CITY" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.COMMONSIZE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.COMPONENT" Width="1.5" PointX="8.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.COMPONENTNAME" Width="1.5" PointX="6" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.CUSTOMER" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.CUSTOMERTRANSACTION" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.EMPLOYEE" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.GROUPO" Width="1.5" PointX="10.5" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.LETTERSTYLE" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.MANUFACTURER" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.MANUFACTURERTRANSACTION" Width="1.5" PointX="5.25" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.MODELSIZE" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.MODELTYPE" Width="1.5" PointX="6" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.PAINT" Width="1.5" PointX="6" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.PREFERENCE" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.PURCHASEITEM" Width="1.5" PointX="13.5" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.PURCHASEORDER" Width="1.5" PointX="5.25" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.RETAILSTORE" Width="1.5" PointX="3" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.REVISIONHISTORY" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.SAMPLENAME" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.SAMPLESTREET" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.STATETAXRATE" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.TEMPDATEMADE" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.TUBEMATERIAL" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeShopModel.WORKAREA" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="BikeShopModel.FK_BIKECUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_BIKEEMPLOYEE" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_BIKELETTER" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_BIKEMODELTYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_BIKEPAINT" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_BIKERETAIL" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE24" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE26" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE6" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE27" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE4" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE5" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_TUBEMATERIALBIKETUBES" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_CITYCUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_CITYEMPLOYEE" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_CITYMANUFACTURER" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_CITYRETAILSTORE" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE16" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE21" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE18" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE23" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_MANUFTRANS" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE22" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_MODELTYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.FK_REFERENCE20" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeShopModel.GROUPCOMPONENTS" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BikeShopModel.LoginAttempt" Width="1.5" PointX="9.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
